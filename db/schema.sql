@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS `ratr`.`QuestionCategories` (
 CREATE TABLE IF NOT EXISTS `ratr`.`AnswerTemplate` (
   `answerID_pk` INT NOT NULL AUTO_INCREMENT,
   `answerType` VARCHAR(20) NULL,
+  `isDealBreaker` TINYINT NOT NULL DEFAULT 0,
   `answerInteger` INT NULL,
   `answerDecimal` DECIMAL(19,4) NULL,
   `answerText` VARCHAR(50) NULL,
@@ -59,6 +60,7 @@ CREATE TABLE IF NOT EXISTS `ratr`.`AnswerTemplate` (
   `answerDate` DATE NULL,
   `sortOrder` INT NULL,
   PRIMARY KEY (`answerID_pk`))
+
 
 CREATE TABLE IF NOT EXISTS `ratr`.`Answers` (
   `answersID_pk` INT NOT NULL AUTO_INCREMENT,
