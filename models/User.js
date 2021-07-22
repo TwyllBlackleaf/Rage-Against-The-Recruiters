@@ -23,7 +23,10 @@ User.init(
         email: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
+            unique: {
+                args: true,
+                msg: 'Email address already in use!'
+            },
             validate: {
                 isEmail: true
             }
@@ -32,7 +35,7 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [4]
+                len: [8]
             }
         }
     },

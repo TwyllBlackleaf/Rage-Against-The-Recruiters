@@ -1,14 +1,17 @@
-async function loginFormHandler(event) {
+async function signupFormHandler(event) {
     event.preventDefault();
-
+    
     // queryselector needs to be updated
+    const username = document.querySelector('#').value.trim();
     const email = document.querySelector('#').value.trim();
     const password = document.querySelector('#').value.trim();
 
-    if (email && password) {
+    if (username && email && password) {
+        // fetch url needs to be updated
         const response = await fetch('/', {
-            // method: 'post'
+            // method: 'post',
             body: JSON.stringify({
+                username,
                 email,
                 password
             }),
@@ -16,7 +19,7 @@ async function loginFormHandler(event) {
         });
 
         if (response.ok) {
-            // replace url needs to be updated
+            // location url needs to be updated
             document.location.replace('/');
         } else {
             alert(response.statusText);
@@ -25,5 +28,4 @@ async function loginFormHandler(event) {
 }
 
 // queryselector needs to be updated
-document.querySelector('.')
-    .addEventListener('submit', loginFormHandler);
+document.querySelector('.').addEventListener('submit', signupFormHandler);
