@@ -1,18 +1,18 @@
   
   /* User Info Seed Data  */
 INSERT INTO userinfo
-  (userType,first_name,last_name,email,phone,
+  (userType,first_name,last_name,email,phone,preferredLocation,
   userURL,company,facebook,twitter,linkedin,active,verified,
   want1,want2,want3,avoid1,avoid2,avoid3) 
-  VALUES('Developer','Diane','Developer','dianedev@mail.com','555-666-7890',
+  VALUES('Developer','Diane','Developer','dianedev@mail.com','555-666-7890','Norfolk',
   'diane@godaddy.com','Self Employed','dianedev@facebook','@dianedev','dianedev@linkedin.com',1,0,
   'Flexibility','Telecommute','javaScript','Long Commutes','Crunch Times','Unpaid overtime');
 
 INSERT INTO userinfo
-  (userType,first_name,last_name,email,phone,
+  (userType,first_name,last_name,email,phone,preferredLocation,
   userURL,company,facebook,twitter,linkedin,active,verified,
   want1,want2,want3,avoid1,avoid2,avoid3) 
-  VALUES('Developer','Ken','Koder','kenkoder@mail.com','888-212-0123',
+  VALUES('Developer','Ken','Koder','kenkoder@mail.com','888-212-0123','Nashville',
   'kenkoder@nunya.com','Gunslinger','kenkoder@facebook','@kenkoder','kenkoder@linkedin.com',1,0,
   'Money','Bonus','Vacation','Meetings','Paperwork','Bad Office Coffee');
 
@@ -31,7 +31,6 @@ INSERT INTO userinfo
   );
 
 /* Question Categories Seed Data */
-INSERT INTO questioncategories(category,categoryRank) VALUES('Dealbreaker',10);
 INSERT INTO questioncategories(category,categoryRank) VALUES('Compensation',9);
 INSERT INTO questioncategories(category,categoryRank) VALUES('Benefits',8);
 INSERT INTO questioncategories(category,categoryRank) VALUES('Workplace Environment',7);
@@ -47,57 +46,42 @@ INSERT INTO questioncategories(category,categoryRank) VALUES('Company Policy',0)
 
 /* Question and Answer Template Seed Data  */
 /*------ Question 1 ---------*/
-INSERT INTO questions(questionCategory_fk,answers_fk,isDealBreaker,questionType,questionText,sortOrder,questionBaseScore) VALUES(7,1,1,'ChooseOne','How many hours per week?',1,15);
-INSERT INTO answertemplate(answerType,isDealBreaker,answerInteger,sortOrder) VALUES('integer',1,20,1);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk, answerScoreModifier) VALUES(1,1,0.00);
-INSERT INTO answertemplate(answerType,isDealBreaker,answerInteger,sortOrder) VALUES('integer',0,25,2);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(2,1,0.75);
-INSERT INTO answertemplate(answerType,isDealBreaker,answerInteger,sortOrder) VALUES('integer',0,30,3);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(3,1,0.95);
-INSERT INTO answertemplate(answerType,isDealBreaker,answerInteger,sortOrder) VALUES('integer',0,35,4);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(4,1,1.10);
-INSERT INTO answertemplate(answerType,isDealBreaker,answerInteger,sortOrder) VALUES('integer',0,40,5);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(5,1,1.25);
-INSERT INTO answertemplate(answerType,isDealBreaker,answerInteger,sortOrder) VALUES('integer',0,45,6);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(6,1,0.85);
+INSERT INTO questions(questionCategory_fk,answers_fk,isDealBreaker,questionType,questionText,sortOrder,questionBaseScore) VALUES(3,1,1,'IntegerRange','How many hours per week?',1,15);
+INSERT INTO answertemplate(answerType,isDealBreaker,answerIntegerMin,sortOrder) VALUES('integer',1,20,1);
+INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk, answerScoreModifier) VALUES(1,1,1.00);
+INSERT INTO answertemplate(answerType,isDealBreaker,answerIntegerMax,sortOrder) VALUES('integer',0,50,2);
+INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(2,1,1.0);
+
 /*
 --------- Question 2 ------------ */
 INSERT INTO questions(questionCategory_fk,answers_fk,isDealBreaker,questionType,questionText,sortOrder,questionBaseScore) VALUES(3,2,1,'Text','Do you allow for telecommute?',2,8);
 INSERT INTO answertemplate(answerType,isDealBreaker,answerBoolean,sortOrder) VALUES('boolean',0,0,1);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(7,2,0.00);
+INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(3,2,0.00);
 INSERT INTO answertemplate(answerType,isDealBreaker,answerBoolean,sortOrder) VALUES('boolean',0,1,2);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(8,2,1.00);
+INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(4,2,1.00);
 /*
 ----------- Question 3 ----------------------------------*/
 INSERT INTO questions(questionCategory_fk,answers_fk,isDealBreaker,questionType,questionText,sortOrder,questionBaseScore) VALUES(7,3,1,'ChooseOne','What is the required education level?',3,10);
 INSERT INTO answertemplate(answerType,isDealBreaker,answerText,sortOrder) VALUES('text',0,'High School',1);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(9,3,1.00);
+INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(5,3,1.00);
 INSERT INTO answertemplate(answerType,isDealBreaker,answerText,sortOrder) VALUES('text',0,'College',2);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(10,3,1.00);
+INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(6,3,1.00);
 INSERT INTO answertemplate(answerType,isDealBreaker,answerText,sortOrder) VALUES('text',0,'Associates Degree',2);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(11,3,1.00);
+INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(7,3,1.00);
 INSERT INTO answertemplate(answerType,isDealBreaker,answerText,sortOrder) VALUES('text',0,'Bachelors Degree',2);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(12,3,1.00);
+INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(8,3,1.00);
 INSERT INTO answertemplate(answerType,isDealBreaker,answerText,sortOrder) VALUES('text',0,'Masters Degree',2);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(13,3,0.5);
+INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(9,3,0.5);
 INSERT INTO answertemplate(answerType,isDealBreaker,answerText,sortOrder) VALUES('text',1,'Doctorate Degree',2);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(14,3,0.25);
+INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(10,3,0.25);
 /*
 ----------- Question 4 ----------------------------------*/
 INSERT INTO questions(questionCategory_fk,answers_fk,isDealBreaker,questionType,questionText,sortOrder,questionBaseScore) VALUES
-(5,4,1,'ChooseOne','Where is the job location?',4,20);
-INSERT INTO answertemplate(answerType,isDealBreaker,answerText,sortOrder) VALUES('text',0,'Downtown Nashville',1);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(15,4,1.0);
-INSERT INTO answertemplate(answerType,isDealBreaker,answerText,sortOrder) VALUES('text',0,'Metro Nashville Area',1);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(16,4,0.90);
-INSERT INTO answertemplate(answerType,isDealBreaker,answerText,sortOrder) VALUES('text',0,'Within 25 Miles of Downtown',1);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(17,4,0.8);
-INSERT INTO answertemplate(answerType,isDealBreaker,answerText,sortOrder) VALUES('text',0,'Within 50 Miles of Downtown',1);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(18,4,0.7);
-INSERT INTO answertemplate(answerType,isDealBreaker,answerText,sortOrder) VALUES('text',1,'More than 50 Miles from Downtown',1);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(19,4,0.2);
-INSERT INTO answertemplate(answerType,isDealBreaker,answerText,sortOrder) VALUES('text',0,'Full Remote',1);
-INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(20,4,1.15);
+(5,4,1,'IntegerRange','How many miles from my preferred location is this opportunity?',4,20);
+INSERT INTO answertemplate(answerType,isDealBreaker,answerIntegerMin,sortOrder) VALUES('integer',0,0,1);
+INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(11,4,1.0);
+INSERT INTO answertemplate(answerType,isDealBreaker,answerIntegerMax,sortOrder) VALUES('integer',0,50,1);
+INSERT INTO answers(answerTemplateID_fk,answerQuestionID_fk,answerScoreModifier) VALUES(12,4,1.0);
 
 /* Job Details 
 
