@@ -101,7 +101,8 @@ Scorecard.init(
         },
         addBenefitsEmployerPercentage: {
             type: DataTypes.DECIMAL,
-            allowNull: true
+            allowNull: true,
+            primaryKey: true
         }
 
 
