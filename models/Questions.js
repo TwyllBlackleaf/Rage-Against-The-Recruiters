@@ -24,11 +24,15 @@ Questions.init(
             foreignKey: true
         },
         questionType: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: true
         },
+        isDealBreaker: {
+            type: DataTypes.TINYINT,
+            allowNull: false
+        },
         questionText: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: true
         },
         questionBaseScore: {

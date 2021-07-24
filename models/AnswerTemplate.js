@@ -14,7 +14,7 @@ AnswerTemplate.init(
             autoIncrement: true
         },
         answerType: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: true
         },
         answerInteger: {
@@ -26,7 +26,7 @@ AnswerTemplate.init(
             allowNull: true
         },
         answerText: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: true
         },
         answerBoolean: {
@@ -40,7 +40,6 @@ AnswerTemplate.init(
         sortOrder: {
             type: DataTypes.INTEGER,
             allowNull: true,
-            primaryKey: true
         }
 
 

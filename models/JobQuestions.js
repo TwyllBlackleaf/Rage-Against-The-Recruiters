@@ -20,11 +20,11 @@ JobQuestions.init(
         },
         questionsID_fk: {
             type: DataTypes.INTEGER,
-            allowNull: true,
-            foreignKey: true
+            allowNull: true
         }
 
     },
+
     {
         sequelize,
         timestamps: false,

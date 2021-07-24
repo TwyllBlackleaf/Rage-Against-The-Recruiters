@@ -37,8 +37,7 @@ Scorecard.init(
         },
         evaluationDT: {
             type: DataTypes.DATE,
-            allowNull: true,
-            primaryKey: true,
+            allowNull: true
         }
 
 

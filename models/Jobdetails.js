@@ -24,15 +24,15 @@ Scorecard.init(
             foreignKey: true
         },
         jobClassification: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: true
         },
         jobTitle: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: true
         },
         jobDescription: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: true
         },
         baseSalary: {
@@ -101,8 +101,7 @@ Scorecard.init(
         },
         addBenefitsEmployerPercentage: {
             type: DataTypes.DECIMAL,
-            allowNull: true,
-            primaryKey: true
+            allowNull: true
         }
 
 

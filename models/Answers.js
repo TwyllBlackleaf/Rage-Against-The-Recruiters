@@ -18,6 +18,10 @@ Answers.init(
             allowNull: true,
             foreignKey: true
         },
+        answerQuestionID_fk: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
         answerScoreModifier: {
             type: DataTypes.DECIMAL,
             allowNull: false,
