@@ -23,8 +23,9 @@ Answers.init(
             allowNull: true
         },
         answerScoreModifier: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(5, 2),
             allowNull: false,
+            defaultValue: 0.00
         }
 
     },

@@ -24,20 +24,22 @@ Questions.init(
             foreignKey: true
         },
         questionType: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(20),
             allowNull: true
         },
         isDealBreaker: {
             type: DataTypes.TINYINT,
-            allowNull: false
+            allowNull: false,
+            defaultValue: 0
         },
         questionText: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(100),
             allowNull: true
         },
         questionBaseScore: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(4, 2),
             allowNull: false,
+            defaultValue: 10.00
         },
         sortOrder: {
             type: DataTypes.INTEGER,

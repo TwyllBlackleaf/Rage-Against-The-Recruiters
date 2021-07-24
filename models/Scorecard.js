@@ -24,15 +24,15 @@ Scorecard.init(
             foreignKey: true
         },
         opportunityScore: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(10, 4),
             allowNull: true
         },
         maximumScorePossible: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(10, 4),
             allowNull: true
         },
         answerDeductions: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(10, 4),
             allowNull: true
         },
         evaluationDT: {

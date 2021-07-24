@@ -20,7 +20,8 @@ JobQuestions.init(
         },
         questionsID_fk: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: true,
+            foreignKey: true
         }
 
     },

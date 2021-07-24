@@ -4,7 +4,7 @@ const sequelize = require('../config/connection.js');
 
 class JobDetails extends Model { }
 
-Scorecard.init(
+JobDetails.init(
     {
         // define columns
         jobDetailsID_pk: {
@@ -24,27 +24,27 @@ Scorecard.init(
             foreignKey: true
         },
         jobClassification: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(20),
             allowNull: true
         },
         jobTitle: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(20),
             allowNull: true
         },
         jobDescription: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT('medium'),
             allowNull: true
         },
         baseSalary: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(19, 4),
             allowNull: true
         },
         bonusFlat: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(19, 4),
             allowNull: true
         },
         bonusPercentage: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(5, 2),
             allowNull: true
         },
         retirementPlanAvail: {
@@ -52,11 +52,11 @@ Scorecard.init(
             allowNull: true
         },
         employerMatchingFlat: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(10, 4),
             allowNull: true
         },
         employerMatchingPercentage: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(5, 2),
             allowNull: true
         },
         paidVacationDays: {
@@ -80,7 +80,7 @@ Scorecard.init(
             allowNull: true
         },
         medicalCoverageEmployerPercentage: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(10, 4),
             allowNull: true
         },
         dentalCoverageAvail: {
@@ -100,7 +100,7 @@ Scorecard.init(
             allowNull: true
         },
         addBenefitsEmployerPercentage: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(10, 4),
             allowNull: true
         }
 

@@ -14,19 +14,32 @@ AnswerTemplate.init(
             autoIncrement: true
         },
         answerType: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(20),
             allowNull: true
+        },
+        isDealBreaker: {
+            type: DataTypes.TINYINT,
+            allowNull: false,
+            defaultValue: 0
         },
         answerInteger: {
             type: DataTypes.INTEGER,
             allowNull: true
         },
+        answerIntegerMax: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        answerIntegerMin: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
         answerDecimal: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(19, 4),
             allowNull: true
         },
         answerText: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(50),
             allowNull: true
         },
         answerBoolean: {
