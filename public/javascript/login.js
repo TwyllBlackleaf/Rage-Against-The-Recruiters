@@ -2,8 +2,8 @@ async function loginFormHandler(event) {
     event.preventDefault();
 
     // queryselector needs to be updated
-    const email = document.querySelector('#').value.trim();
-    const password = document.querySelector('#').value.trim();
+    const email = document.querySelector('#email-login').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
 
     if (email && password) {
         const response = await fetch('/', {
