@@ -1,36 +1,81 @@
+const passport = require('passport');
+
 const router = require('express').Router();
-const { User } = require('../../models');
+const User = require('../../models/User');
 
-router.post('/login', (req, res) => {
-    User.findOne({
-        where: {
-            email: req.body.email
-        }
-    }).then(dbUserData => {
-        // check email address
-        if (!dbUserData) {
-            res.status(400).json({ message: 'No user with that email address!' });
-            return;
-        }
+router.get('/', (req, res) => {
+    User.findAll({
+      attributes: { exclude: ['password'] }
+    })
+      .then(dbUserData => res.json(dbUserData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });  
 
-        // check password
-        const validPassword = dbUserData.checkPassword(req.body.password);
-
-        if (!validPassword) {
-            res.status(400).json({ message: 'Incorrect password!' });
-            return;
-        }
-
-        // session not addeed on server.js yet
+router.post('/', (req, res) => {
+    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+    User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password
+    })
+      .then(dbUserData => {
         req.session.save(() => {
-            req.session.user_id = dbUserData.id;
-            req.session.username = dbUserData.username;
-            req.session.loggedIn = true;
-
-            res.json({ user: dbUserData, message: 'You are now logged in!' });
+          req.session.user_id = dbUserData.id;
+          req.session.username = dbUserData.username;
+          req.session.loggedIn = true;
+    
+          res.json(dbUserData);
         });
-    });
-});
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });  
+
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/api/users',
+    failureMessage: false
+  }));
+
+
+module.exports = router;
+  
+
+// router.post('/login', (req, res) => {
+//     User.findOne({
+//         where: {
+//             email: req.body.email
+//         }
+//     }).then(dbUserData => {
+//         // check email address
+//         if (!dbUserData) {
+//             res.status(400).json({ message: 'No user with that email address!' });
+//             return;
+//         }
+
+//         // check password
+//         const validPassword = dbUserData.checkPassword(req.body.password);
+
+//         if (!validPassword) {
+//             res.status(400).json({ message: 'Incorrect password!' });
+//             return;
+//         }
+
+//         // session not addeed on server.js yet
+//         req.session.save(() => {
+//             req.session.user_id = dbUserData.id;
+//             req.session.username = dbUserData.username;
+//             req.session.loggedIn = true;
+
+//             res.json({ user: dbUserData, message: 'You are now logged in!' });
+//         });
+//     });
+// });
 
 
 // // Passport oauth
