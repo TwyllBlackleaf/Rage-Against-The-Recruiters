@@ -1,4 +1,10 @@
-<nav>
-    <a href="../layouts/userPage.ejs"><% username %></a>
-    <a href="../layouts/logInAndOut.ejs"><% logInOut %></a>
-</nav>
+<header>
+    <nav>
+        <% if (req.session.loggedIn) { %>
+            <a href="/userPage"><%= req.session.username %></a>
+            <button id="logoutButton">Log Out</button>
+        <% } else { %>
+            <a href="/login">Log In</a>
+        <% } %>
+    </nav>
+</header>

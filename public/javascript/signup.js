@@ -2,9 +2,9 @@ async function signupFormHandler(event) {
     event.preventDefault();
     
     // queryselector needs to be updated
-    const username = document.querySelector('#').value.trim();
-    const email = document.querySelector('#').value.trim();
-    const password = document.querySelector('#').value.trim();
+    const username = document.querySelector('#username-signup').value.trim();
+    const email = document.querySelector('#email-signup').value.trim();
+    const password = document.querySelector('#password-signup').value.trim();
 
     if (username && email && password) {
         // fetch url needs to be updated
