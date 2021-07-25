@@ -31,3 +31,80 @@ router.post('/login', (req, res) => {
         });
     });
 });
+
+
+// // Passport oauth
+// // callback
+// app.get('/login', function(req, res, next) {
+//     passport.authenticat('local', function(err, user, info) {
+//         if (err) { return next(err); }
+//         if (!user) { return res.redirect('/login'); }
+//         req.logIn(user, function(err) {
+//             if (err) { return next(err); }
+//             return res.redirect('/user');
+//         });
+//     })(req, res, next);
+// });
+
+// // npm install passport-local 
+// // configuration
+// const passport = require('passport');
+// const LocalStrategy = require('passport-local').Strategy;
+
+// passport.use(new LocalStrategy(
+//     function(username, password, done) {
+//         User.findOne({ username: username }, function (err, user) {
+//             if (err) { return done(err); }
+//             if (!user) {
+//                 // verify callback
+//                 return done(null, false, { message: 'Incorrect username' });
+//             }
+//             if (!user.validPassowrd(password)) {
+//                 // verify callback
+//                 return done(null, false, { message: 'Incorrect password' });
+//             }
+//             // verify callback
+//             return done(null, user);
+//         });
+//     }
+// ));
+
+// // route
+// app.post('/login',
+//     passport.authenticat('local', { successRedirect: '/',
+//                                     failureRedirect: '/login'}));
+
+// // parameter
+// passport.use(new LocalStrategy({
+//     usernameField: 'email',
+//     passwordField: 'passwd'
+// },
+// function(username, password, done) {
+
+// }
+// ));
+
+
+// // OAuth
+
+// // npm install passport-oauth
+// // Config
+// const passport = require('passport');
+// const Oauth2Strategy = require('passport-oauth').Oauth2Strategy;
+
+// passport.use('provider', new Oauth2Strategy({
+//     authorizationURL: '',
+//     tokenURL: '',
+//     clientID: '',
+//     clientSecret: '',
+//     callbackURL: ''
+//     },
+// function(accessToken, refreshToken, profile, done) {
+//     User.findOne({ username: username }, function(err, user) {
+//         done(err, user);
+//         });
+//     }
+// ));
+
+// // routes
+// app.get('/', passport.authenticate('provider'))
