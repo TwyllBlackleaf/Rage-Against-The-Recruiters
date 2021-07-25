@@ -134,16 +134,19 @@ CREATE TABLE IF NOT EXISTS `ratr_db`.`JobDetails` (
     ON DELETE SET NULL
     ON UPDATE SET NULL);
 
-CREATE TABLE IF NOT EXISTS `ratr_db`.`JobQuestions` (
+CREATE TABLE IF NOT EXISTS `ratr_db`.`jobquestions` (
   `jobQuestionsID_pk` INT NOT NULL AUTO_INCREMENT,
-  `jobDetailsID_fk` INT NULL,
-  `questionsID_fk` INT NULL,
+  `jobDetailsID_fk` INT NULL DEFAULT NULL,
+  `questionsID_fk` INT NULL DEFAULT NULL,
   PRIMARY KEY (`jobQuestionsID_pk`),
   INDEX `jobDetailsID_fk_idx` (`jobDetailsID_fk` ASC) VISIBLE,
   INDEX `questionsID_fk_idx` (`questionsID_fk` ASC) VISIBLE,
   CONSTRAINT `jobquestions_jobDetailsID_fk`
     FOREIGN KEY (`jobDetailsID_fk`)
-    REFERENCES `ratr_db`.`JobDetails` (`jobDetailsID_pk`)
+    REFERENCES `ratr_db`.`jobdetails` (`jobDetailsID_pk`),
+  CONSTRAINT `jobquestions_questionsID_fk`
+    FOREIGN KEY (`questionsID_fk`)
+    REFERENCES `ratr_db`.`questions` (`questionID_pk`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
     
