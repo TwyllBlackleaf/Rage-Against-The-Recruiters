@@ -169,3 +169,22 @@ CREATE TABLE IF NOT EXISTS `ratr_db`.`Scorecard` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION); 
   
+CREATE TABLE IF NOT EXISTS `ratr_db`.`surveryAnswers` (
+  `surveyAnswers_pk` INT NOT NULL AUTO_INCREMENT,
+  `questionsID_fk` INT NULL,
+  `jobDetailsID_fk` INT NULL,
+  `answer` VARCHAR(50) NULL,
+  `answerScore` DECIMAL(10,2) NULL,
+  PRIMARY KEY (`surveyAnswers_pk`),
+  INDEX `survey_questionID_fk_idx` (`questionsID_fk` ASC) VISIBLE,
+  INDEX `survey_jobDetailsID_fk_idx` (`jobDetailsID_fk` ASC) VISIBLE,
+  CONSTRAINT `survey_questionID_fk`
+    FOREIGN KEY (`questionsID_fk`)
+    REFERENCES `ratr_db`.`questions` (`questionID_pk`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `survey_jobDetailsID_fk`
+    FOREIGN KEY (`jobDetailsID_fk`)
+    REFERENCES `ratr_db`.`jobdetails` (`jobDetailsID_pk`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
