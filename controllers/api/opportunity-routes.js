@@ -1,13 +1,13 @@
 const router = require('express').Router();
-const { } = require('../../models');
+const { User } = require('../../models');
 
 router.get('/submit/:id', (req, res) => {
     User.findOne({
     });
 });
 
-router.post('/submit/:id', withAuth, (req, res) => {
-    Post.create({
+router.post('/submit/:id', (req, res) => {
+    User.create({
     });
 });
 
