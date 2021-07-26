@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS `ratr_db`.`UserInfo` (
   `last_name` VARCHAR(30) NULL,
   `email` VARCHAR(50) NOT NULL,
   `phone` VARCHAR(15) NULL,
+  `preferredLocation` VARCHAR(25) NULL,
   `userURL` VARCHAR(50) NULL,
   `company` VARCHAR(50) NULL,
   `facebook` VARCHAR(50) NULL,
@@ -54,6 +55,8 @@ CREATE TABLE IF NOT EXISTS `ratr_db`.`AnswerTemplate` (
   `answerType` VARCHAR(20) NULL,
   `isDealBreaker` TINYINT NOT NULL DEFAULT 0,
   `answerInteger` INT NULL,
+  `answerIntegerMax` INT NULL,
+  `answerIntegerMin` INT NULL,
   `answerDecimal` DECIMAL(19,4) NULL,
   `answerText` VARCHAR(50) NULL,
   `answerBoolean` TINYINT NULL,
@@ -131,16 +134,19 @@ CREATE TABLE IF NOT EXISTS `ratr_db`.`JobDetails` (
     ON DELETE SET NULL
     ON UPDATE SET NULL);
 
-CREATE TABLE IF NOT EXISTS `ratr_db`.`JobQuestions` (
+CREATE TABLE IF NOT EXISTS `ratr_db`.`jobquestions` (
   `jobQuestionsID_pk` INT NOT NULL AUTO_INCREMENT,
-  `jobDetailsID_fk` INT NULL,
-  `questionsID_fk` INT NULL,
+  `jobDetailsID_fk` INT NULL DEFAULT NULL,
+  `questionsID_fk` INT NULL DEFAULT NULL,
   PRIMARY KEY (`jobQuestionsID_pk`),
   INDEX `jobDetailsID_fk_idx` (`jobDetailsID_fk` ASC) VISIBLE,
   INDEX `questionsID_fk_idx` (`questionsID_fk` ASC) VISIBLE,
   CONSTRAINT `jobquestions_jobDetailsID_fk`
     FOREIGN KEY (`jobDetailsID_fk`)
-    REFERENCES `ratr_db`.`JobDetails` (`jobDetailsID_pk`)
+    REFERENCES `ratr_db`.`jobdetails` (`jobDetailsID_pk`),
+  CONSTRAINT `jobquestions_questionsID_fk`
+    FOREIGN KEY (`questionsID_fk`)
+    REFERENCES `ratr_db`.`questions` (`questionID_pk`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
     
@@ -166,3 +172,22 @@ CREATE TABLE IF NOT EXISTS `ratr_db`.`Scorecard` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION); 
   
+CREATE TABLE IF NOT EXISTS `ratr_db`.`surveryAnswers` (
+  `surveyAnswers_pk` INT NOT NULL AUTO_INCREMENT,
+  `questionsID_fk` INT NULL,
+  `jobDetailsID_fk` INT NULL,
+  `answer` VARCHAR(50) NULL,
+  `answerScore` DECIMAL(10,2) NULL,
+  PRIMARY KEY (`surveyAnswers_pk`),
+  INDEX `survey_questionID_fk_idx` (`questionsID_fk` ASC) VISIBLE,
+  INDEX `survey_jobDetailsID_fk_idx` (`jobDetailsID_fk` ASC) VISIBLE,
+  CONSTRAINT `survey_questionID_fk`
+    FOREIGN KEY (`questionsID_fk`)
+    REFERENCES `ratr_db`.`questions` (`questionID_pk`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `survey_jobDetailsID_fk`
+    FOREIGN KEY (`jobDetailsID_fk`)
+    REFERENCES `ratr_db`.`jobdetails` (`jobDetailsID_pk`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
