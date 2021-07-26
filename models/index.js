@@ -5,8 +5,18 @@ const JobQuestions = require('./JobQuestions');
 const JobDetails = require('./JobDetails');
 const AnswerTemplate = require('./AnswerTemplate');
 const Answers = require('./Answers');
+const surveryAnswers = require('./surveyAnswers');
 
 // create associations
 
 
-module.exports = { User, Scorecard, Questions, JobQuestions, JobDetails, AnswerTemplate, Answers };
+module.exports = {
+    User,
+    Scorecard,
+    Questions,
+    JobQuestions,
+    JobDetails,
+    AnswerTemplate,
+    Answers,
+    surveryAnswers
+};
