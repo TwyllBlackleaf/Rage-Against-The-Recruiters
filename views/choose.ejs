@@ -17,7 +17,23 @@
             </ul>
         </nav>
         <div class="col-12 col-md-9">
+            <% categories.forEach(category => { %>
+                <h4><%= category.category </h4>
+                <% category.questions.forEach(question => { %>
+                    <% switch (question.question_type) { %>
+                        <% case '': %>
 
+                        <% break; %>
+                        <% case '': %>
+
+                        <% break; %>
+                        <% case '': %> 
+                        
+                        <% break; %>
+                    <% } %>
+                <% }); %>
+
+            <% }); %>
         </div>
     </main>
 
