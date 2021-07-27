@@ -6,9 +6,31 @@ const JobDetails = require('./JobDetails');
 const AnswerTemplate = require('./AnswerTemplate');
 const Answers = require('./Answers');
 const surveryAnswers = require('./surveyAnswers');
-const QuestionCategories = require('./QuestionCategories')
+const QuestionCategories = require('./QuestionCategories');
+const UserInfo = require('./UserInfo');
 
 // create associations
+
+JobDetails.belongsTo(JobQuestions, {
+    foreignKey: 'jobDetailsID_fk'
+});
+Questions.belongsTo(JobQuestions, {
+    foreignKey: 'questionsID_fk'
+});
+AnswerTemplate.belongsTo(Answers, {
+    foreignKey: 'answerTemplateID_fk'
+});
+QuestionCategories.belongsTo(Questions, {
+    foreignKey: 'questionCategory_fk'
+});
+
+
+
+
+
+
+
+
 
 
 module.exports = {
@@ -20,5 +42,6 @@ module.exports = {
     AnswerTemplate,
     Answers,
     surveryAnswers,
-    QuestionCategories
+    QuestionCategories,
+    UserInfo
 };

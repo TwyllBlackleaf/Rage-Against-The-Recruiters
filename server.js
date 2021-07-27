@@ -3,37 +3,24 @@ const express = require('express');
 const ejs = require('ejs');
 const session = require('express-session');
 const passport = require('passport');
+const logger = require('morgan');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sequelize = require("./config/connection");
+app.use(logger('dev'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(require('./controllers'));
-
-
-
 app.set('view engine', 'ejs');
 
-sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
-});
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
-var logger = require('morgan');
-
 
 require('./utils/auth')();
 
-app.use(logger('dev'));
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
 
 const sess = {
     secret: 'Super secret secret',
