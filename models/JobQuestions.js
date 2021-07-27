@@ -22,6 +22,11 @@ JobQuestions.init(
             type: DataTypes.INTEGER,
             allowNull: true,
             foreignKey: true
+        },
+        userid_fk: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            foreignKey: true
         }
 
     },

@@ -3,13 +3,19 @@ const express = require('express');
 const ejs = require('ejs');
 const session = require('express-session');
 const passport = require('passport');
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0285f1f9b1f6ff83673f5f6447ed4816f47d953c
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sequelize = require("./config/connection");
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0285f1f9b1f6ff83673f5f6447ed4816f47d953c
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

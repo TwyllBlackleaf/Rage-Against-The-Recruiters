@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class surveryAnswers extends Model { }
+class surveyAnswers extends Model { }
 
-surveryAnswers.init(
+surveyAnswers.init(
     {
         // define columns
         survey_answers_pk: {
@@ -39,8 +39,8 @@ surveryAnswers.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'surveryAnswers',
+        modelName: 'surveyAnswers',
     }
 );
 
-module.exports = surveryAnswers;
+module.exports = surveyAnswers;
