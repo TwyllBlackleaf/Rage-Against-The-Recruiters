@@ -59,7 +59,7 @@ module.exports = {
     JobDetails,
     AnswerTemplate,
     Answers,
-    surveryAnswers,
+    surveyAnswers,
     QuestionCategories,
     UserInfo
 };
