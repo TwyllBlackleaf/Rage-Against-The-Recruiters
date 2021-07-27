@@ -7,7 +7,7 @@ class UserInfo extends Model { }
 UserInfo.init(
     {
         // define columns
-        userID_pk: {
+        userid_pk: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
@@ -18,7 +18,7 @@ UserInfo.init(
             allowNull: true,
             foreignKey:true
         },
-        userType: {
+        user_type: {
             type: DataTypes.STRING(30),
             allowNull: false,
             foreignKey: true,
@@ -36,11 +36,11 @@ UserInfo.init(
             type: DataTypes.STRING(15),
             allowNull: true
         },
-        preferredLocation: {
+        preferred_location: {
             type: DataTypes.STRING(25),
             allowNull: true
         },
-        userURL: {
+        user_url: {
             type: DataTypes.STRING(50),
             allowNull: true
         },
