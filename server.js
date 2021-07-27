@@ -3,13 +3,11 @@ const express = require('express');
 const ejs = require('ejs');
 const session = require('express-session');
 const passport = require('passport');
-//const logger = require('morgan');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sequelize = require("./config/connection");
-//app.use(logger('dev'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
