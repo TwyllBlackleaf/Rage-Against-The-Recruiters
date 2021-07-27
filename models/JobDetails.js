@@ -113,7 +113,7 @@ JobDetails.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'jobDetails',
+        modelName: 'JobDetails',
     }
 );
 
