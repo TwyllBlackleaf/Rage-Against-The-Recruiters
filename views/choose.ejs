@@ -29,7 +29,8 @@
                     <% category.questions.forEach(question => { %>
                         <% idString = question.questionid_pk.toString(); %>
                         <input type="checkbox" id=<%= idString %> >
-                        <label for=<%= idString %>><%= question.question_text %></label>
+                        <label for=<%= idString %>>Set your preference for this question:</label>
+                        <p><%= question.question_text %></p>
 
                         <% switch (question.question_type) { %>
                             <% case 'integer': %>
@@ -39,10 +40,12 @@
                                 <label for=<%= maxId %> >Maximum value: </label>
                                 <input type="number" id=<%= maxId %> name=<%= maxId %> >
     
-                                <label for=<%= minId %>>Minimum value: </label>
+                                <label for=<%= minId %> >Minimum value: </label>
                                 <input type="number" id=<%= minId %> name=<%= minId %> >
                             <% break; %>
-                            <% case '': %>
+                            <% case 'boolean': %>
+                                <% const boolName = "bool" + idString; %>
+                                
     
                             <% break; %>
                             <% case '': %> 
@@ -52,6 +55,8 @@
                     
 
                     <% }); %>
+                
+                <button>Submit</button>
                 </form>
             <% }); %>
         </div>
