@@ -11,28 +11,48 @@
         <nav class="col-12 col-md-3">
             <h3>Categories:</h3>
             <ul>
-                <li>
-                    
-                </li>
+                <% categories.forEach(category => { %>
+                    <% var catHref = "#catId" + category.categoryid_pk; %>
+                    <li>                 
+                        <a  href=<% catHref %>> category.category </a>
+                    </li>
+                <% }); %>   
             </ul>
         </nav>
+        
         <div class="col-12 col-md-9">
             <% categories.forEach(category => { %>
-                <h4><%= category.category </h4>
-                <% category.questions.forEach(question => { %>
-                    <% switch (question.question_type) { %>
-                        <% case '': %>
+                <% var categoryId = "catId" + category.categoryid_pk; %>
+                <h4 id=<%= categoryId %>><%= category.category %> </h4>
 
-                        <% break; %>
-                        <% case '': %>
+                <form>
+                    <% category.questions.forEach(question => { %>
+                        <% idString = question.questionid_pk.toString(); %>
+                        <input type="checkbox" id=<%= idString %> >
+                        <label for=<%= idString %>><%= question.question_text %></label>
 
-                        <% break; %>
-                        <% case '': %> 
-                        
-                        <% break; %>
-                    <% } %>
-                <% }); %>
+                        <% switch (question.question_type) { %>
+                            <% case 'integer': %>
+                                <% const maxId = "max" + idString; %>
+                                <% const minId = "min" + idString; %>
+    
+                                <label for=<%= maxId %> >Maximum value: </label>
+                                <input type="number" id=<%= maxId %> name=<%= maxId %> >
+    
+                                <label for=<%= minId %>>Minimum value: </label>
+                                <input type="number" id=<%= minId %> name=<%= minId %> >
+                            <% break; %>
+                            <% case '': %>
+    
+                            <% break; %>
+                            <% case '': %> 
+                            
+                            <% break; %>
+                        <% } %>
+                    
 
+                    <% }); %>
+                </form>
             <% }); %>
         </div>
     </main>
