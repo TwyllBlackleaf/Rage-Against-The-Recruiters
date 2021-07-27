@@ -3,21 +3,13 @@ const express = require('express');
 const ejs = require('ejs');
 const session = require('express-session');
 const passport = require('passport');
-<<<<<<< HEAD
-// const logger = require('morgan');
-=======
-//const logger = require('morgan');
->>>>>>> d83103f4bec34a811b32cb34abff7f81462c46c0
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sequelize = require("./config/connection");
-<<<<<<< HEAD
-// app.use(logger('dev'));
-=======
-//app.use(logger('dev'));
->>>>>>> d83103f4bec34a811b32cb34abff7f81462c46c0
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
