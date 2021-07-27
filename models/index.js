@@ -8,7 +8,6 @@ const AnswerTemplate = require('./AnswerTemplate');
 const Answers = require('./Answers');
 const surveryAnswers = require('./surveyAnswers');
 const QuestionCategories = require('./QuestionCategories');
-const UserInfo = require('./UserInfo');
 
 // create associations
 
@@ -18,7 +17,7 @@ JobDetails.belongsToMany(Questions, {
     onDelete: 'SET NULL'
 });
 User.belongsTo(UserInfo, {
-    foreignKey: user_fk
+    foreignKey: 'user_fk'
 });
 surveryAnswers.belongsTo(JobDetails, {
     foreignKey: 'jobDetailsID_fk',

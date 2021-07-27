@@ -15,8 +15,6 @@ router.get('/', (req, res) => {
   });  
 
 router.post('/', (req, res) => {
-    console.log("signup-body", req.body)
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
     User.create({
       username: req.body.username,
       email: req.body.email,
@@ -41,9 +39,14 @@ router.post('/', (req, res) => {
 
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/api/users',
+    failureRedirect: '/login',
     failureMessage: false
   }));
+
+router.get('/logout', function(req, res, next) {
+  req.logout();
+  res.redirect('/');
+  });
 
 
 module.exports = router;
