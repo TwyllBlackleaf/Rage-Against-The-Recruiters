@@ -1,6 +1,6 @@
 <header>
     <nav>
-        <% var username = localstorage.getItem("user"); %>
+        <% var username = localStorage.getItem("user"); %>
         <% if (username) { %>
             <a href="/userPage"><%= username %></a>
             <button id="logoutButton">Log Out</button>
