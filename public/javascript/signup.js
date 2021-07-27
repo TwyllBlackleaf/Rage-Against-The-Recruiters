@@ -9,13 +9,13 @@ async function signupFormHandler(event) {
     if (username && email && password) {
         // fetch url needs to be updated
         const response = await fetch('/', {
-            // method: 'post',
+            method: 'post',
             body: JSON.stringify({
                 username,
                 email,
                 password
             }),
-            // headers: { 'Content-Type': 'application/json' }
+            headers: { 'Content-Type': 'application/json' }
         });
 
         if (response.ok) {
@@ -28,4 +28,4 @@ async function signupFormHandler(event) {
 }
 
 // queryselector needs to be updated
-document.querySelector('.').addEventListener('submit', signupFormHandler);
+document.querySelector('.singup-form').addEventListener('submit', signupFormHandler);

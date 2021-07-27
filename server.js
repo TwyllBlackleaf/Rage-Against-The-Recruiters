@@ -19,9 +19,9 @@ app.use(require('./controllers'));
 
 app.set('view engine', 'ejs');
 
-sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
-});
+// sequelize.sync({ force: false }).then(() => {
+//     app.listen(PORT, () => console.log('Now listening'));
+// });
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 var logger = require('morgan');
