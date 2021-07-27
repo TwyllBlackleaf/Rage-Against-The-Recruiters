@@ -1,7 +1,6 @@
 async function signupFormHandler(event) {
     event.preventDefault();
     
-    // queryselector needs to be updated
     const username = document.querySelector('#username-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
@@ -27,5 +26,4 @@ async function signupFormHandler(event) {
     }
 }
 
-// queryselector needs to be updated
-document.querySelector('.').addEventListener('submit', signupFormHandler);
+document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);

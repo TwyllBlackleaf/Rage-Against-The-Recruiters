@@ -1,7 +1,6 @@
 async function loginFormHandler(event) {
     event.preventDefault();
 
-    // queryselector needs to be updated
     const email = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
 
@@ -25,5 +24,5 @@ async function loginFormHandler(event) {
 }
 
 // queryselector needs to be updated
-document.querySelector('.')
+document.querySelector('#login-form')
     .addEventListener('submit', loginFormHandler);
