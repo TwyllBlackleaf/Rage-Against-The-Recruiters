@@ -6,7 +6,7 @@ const JobQuestions = require('./JobQuestions');
 const JobDetails = require('./JobDetails');
 const AnswerTemplate = require('./AnswerTemplate');
 const Answers = require('./Answers');
-const surveryAnswers = require('./surveyAnswers');
+const surveyAnswers = require('./surveyAnswers');
 const QuestionCategories = require('./QuestionCategories');
 
 // create associations
@@ -19,11 +19,11 @@ JobDetails.belongsToMany(Questions, {
 User.belongsTo(UserInfo, {
     foreignKey: 'user_fk'
 });
-surveryAnswers.belongsTo(JobDetails, {
+surveyAnswers.belongsTo(JobDetails, {
     foreignKey: 'jobDetailsID_fk',
     onDelete: 'SET NULL'
 });
-Questions.belongsTo(surveryAnswers, {
+Questions.belongsTo(surveyAnswers, {
     foreignKey: 'questionID_fk'
 })
 AnswerTemplate.belongsTo(Answers, {
@@ -59,7 +59,7 @@ module.exports = {
     JobDetails,
     AnswerTemplate,
     Answers,
-    surveryAnswers,
+    surveyAnswers,
     QuestionCategories,
     UserInfo
 };

@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.get('/submit/:id', (req, res) => {
-    User.findOne({
+router.get('/submit', (req, res) => {
+    User.findAll({
     });
 });
 
