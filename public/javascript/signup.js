@@ -7,7 +7,7 @@ async function signupFormHandler(event) {
 
     if (username && email && password) {
         // fetch url needs to be updated
-        const response = await fetch('/', {
+        const response = await fetch('/api/users', {
             method: 'post',
             body: JSON.stringify({
                 username,

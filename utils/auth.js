@@ -25,7 +25,9 @@ module.exports = function() {
 
         const user = {
             id: dbUserData.id,
-            email: dbUserData.email
+            username: dbUserData.username,
+            email: dbUserData.email,
+            // usertype
         };
         // user logged in
         return cb(null, user);
