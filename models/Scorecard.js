@@ -7,35 +7,35 @@ class Scorecard extends Model { }
 Scorecard.init(
     {
         // define columns
-        scorecardID_pk: {
+        scorecardid_pk: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        recruiterID_fk: {
+        recruiterid_fk: {
             type: DataTypes.INTEGER,
             allowNull: true,
             foreignKey: true
         },
-        jobDetailsID_fk: {
+        job_detailsid_fk: {
             type: DataTypes.INTEGER,
             allowNull: true,
             foreignKey: true
         },
-        opportunityScore: {
+        opportunity_score: {
             type: DataTypes.DECIMAL(10, 4),
             allowNull: true
         },
-        maximumScorePossible: {
+        maximum_score_possible: {
             type: DataTypes.DECIMAL(10, 4),
             allowNull: true
         },
-        answerDeductions: {
+        answer_deductions: {
             type: DataTypes.DECIMAL(10, 4),
             allowNull: true
         },
-        evaluationDT: {
+        evaluation_dt: {
             type: DataTypes.DATE,
             allowNull: true
         }

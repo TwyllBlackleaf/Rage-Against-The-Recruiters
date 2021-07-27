@@ -7,99 +7,99 @@ class JobDetails extends Model { }
 JobDetails.init(
     {
         // define columns
-        jobDetailsID_pk: {
+        job_detailsid_pk: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        recruiterID_fk: {
+        recruiterid_fk: {
             type: DataTypes.INTEGER,
             allowNull: true,
             foreignKey: true
         },
-        jobQuestionsID_fk: {
+        job_questionsid_fk: {
             type: DataTypes.INTEGER,
             allowNull: true,
             foreignKey: true
         },
-        jobClassification: {
+        job_classification: {
             type: DataTypes.STRING(20),
             allowNull: true
         },
-        jobTitle: {
+        job_title: {
             type: DataTypes.STRING(20),
             allowNull: true
         },
-        jobDescription: {
+        job_description: {
             type: DataTypes.TEXT('medium'),
             allowNull: true
         },
-        baseSalary: {
+        base_salary: {
             type: DataTypes.DECIMAL(19, 4),
             allowNull: true
         },
-        bonusFlat: {
+        bonus_flat: {
             type: DataTypes.DECIMAL(19, 4),
             allowNull: true
         },
-        bonusPercentage: {
+        bonus_percentage: {
             type: DataTypes.DECIMAL(5, 2),
             allowNull: true
         },
-        retirementPlanAvail: {
+        retirement_plan_avail: {
             type: DataTypes.TINYINT,
             allowNull: true
         },
-        employerMatchingFlat: {
+        employer_matching_flat: {
             type: DataTypes.DECIMAL(10, 4),
             allowNull: true
         },
-        employerMatchingPercentage: {
+        employer_matching_percentage: {
             type: DataTypes.DECIMAL(5, 2),
             allowNull: true
         },
-        paidVacationDays: {
+        paid_vacation_days: {
             type: DataTypes.INTEGER,
             allowNull: true
         },
-        paidSickDays: {
+        paid_sick_days: {
             type: DataTypes.INTEGER,
             allowNull: true
         },
-        paidHolidays: {
+        paid_holidays: {
             type: DataTypes.INTEGER,
             allowNull: true
         },
-        medicalCoverageAvail: {
+        medical_coverage_avail: {
             type: DataTypes.TINYINT,
             allowNull: true
         },
-        familyCoverageAvail: {
+        family_coverage_avail: {
             type: DataTypes.TINYINT,
             allowNull: true
         },
-        medicalCoverageEmployerPercentage: {
+        medical_coverage_employer_percentage: {
             type: DataTypes.DECIMAL(10, 4),
             allowNull: true
         },
-        dentalCoverageAvail: {
+        dental_coverage_avail: {
             type: DataTypes.TINYINT,
             allowNull: true
         },
-        visionCoverageAvail: {
+        vision_coverage_avail: {
             type: DataTypes.TINYINT,
             allowNull: true
         },
-        lifeInsuranceAvail: {
+        life_insurance_avail: {
             type: DataTypes.TINYINT,
             allowNull: true
         },
-        spouseLifeInsuranceAvail: {
+        spouse_life_insurance_avail: {
             type: DataTypes.TINYINT,
             allowNull: true
         },
-        addBenefitsEmployerPercentage: {
+        add_benefits_employer_percentage: {
             type: DataTypes.DECIMAL(10, 4),
             allowNull: true
         }
@@ -113,7 +113,7 @@ JobDetails.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'jobDetails',
+        modelName: 'JobDetails',
     }
 );
 

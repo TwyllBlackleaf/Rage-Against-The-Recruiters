@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head"); %>
+    <title>Document</title>
+</head>
+<body>
+    <%- include("./partials/header"); %>
+
+    <form id="signup-form">
+        <div>
+            <label for="username-signup">Username: </label>
+            <input type="text" id="username-signup" />
+        </div>
+        <div>
+            <label for="email-signup">Email: </label>
+            <input type="text" id="email-signup" />
+        </div>
+        <div>
+            <label for="password-signup">Password: </label>
+            <input type="password" id="password-signup" />
+        </div>
+        <div>
+            <p>Account type: </p>
+            <input type="radio" id="talentType" name="accountType" value="talent">
+            <label for="talentType">Talent</label>
+            <input type="radio" id="recruiterType" name="accountType" value="recruiter">
+            <label for="recruiterType">Recruiter</label>
+
+        </div>
+        <div>
+            <button type="submit">Sign Up</button>
+        </div>
+    </form>
+    
+    <%- include("./partials/footer"); %>
+    <script src="/javascript/signup.js"></script>
+</body>
+</html>

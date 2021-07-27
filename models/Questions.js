@@ -7,13 +7,13 @@ class Questions extends Model { }
 Questions.init(
     {
         // define columns
-        questionID_pk: {
+        questionid_pk: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        questionCategory_fk: {
+        question_category_fk: {
             type: DataTypes.INTEGER,
             allowNull: true,
             foreignKey: true
@@ -23,25 +23,25 @@ Questions.init(
             allowNull: true,
             foreignKey: true
         },
-        questionType: {
+        question_type: {
             type: DataTypes.STRING(20),
             allowNull: true
         },
-        isDealBreaker: {
+        is_deal_breaker: {
             type: DataTypes.TINYINT,
             allowNull: false,
             defaultValue: 0
         },
-        questionText: {
+        question_text: {
             type: DataTypes.STRING(100),
             allowNull: true
         },
-        questionBaseScore: {
+        question_base_score: {
             type: DataTypes.DECIMAL(4, 2),
             allowNull: false,
             defaultValue: 10.00
         },
-        sortOrder: {
+        sort_order: {
             type: DataTypes.INTEGER,
             allowNull: true
         }

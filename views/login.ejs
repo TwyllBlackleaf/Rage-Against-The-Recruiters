@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./partials/head') %>
     <title>Document</title>
 </head>
 <body>
-    <%- include("partials/header"); %>
+    <%- include("./partials/header"); %>
 
-    <form>
+    <form id="login-form">
         <div>
             <label for="email-login">Email:</label>
             <input type="text" id="email-login" />
@@ -19,7 +17,7 @@
             <input type="password" id="password-login" />
         </div>
         <div>
-            <button type="submit">login</button>
+            <button type="submit">Log In</button>
         </div>
     </form>
 
@@ -27,7 +25,7 @@
         <a href="">Reset Password</a>
     </div>
     
-    <%- include("partials/footer"); %>
+    <%- include("./partials/footer"); %>
 
     <script src="/javascript/login.js"></script>
 </body>

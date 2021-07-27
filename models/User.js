@@ -37,7 +37,13 @@ User.init(
             validate: {
                 len: [8]
             }
-        }
+        },
+        user_type: {
+            type: DataTypes.STRING(30),
+            allowNull: false,
+            foreignKey: true,
+            defaultValue: 'Recruiter'
+        },
     },
     {
         hooks: {

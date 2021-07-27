@@ -1,10 +1,12 @@
 <header>
     <nav>
-        <% if (req.session.loggedIn) { %>
-            <a href="/userPage"><%= req.session.username %></a>
+        <% if (username) { %>
+            <a href="/userPage"><%= username %></a>
             <button id="logoutButton">Log Out</button>
         <% } else { %>
             <a href="/login">Log In</a>
         <% } %>
     </nav>
 </header>
+
+<script src="/javascript/logout.js"></script>

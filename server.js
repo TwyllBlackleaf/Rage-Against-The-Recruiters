@@ -13,27 +13,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(require('./controllers'));
-
-
-
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
-});
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
-var logger = require('morgan');
-
 
 require('./utils/auth')();
 
-app.use(logger('dev'));
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
 
 const sess = {
     secret: 'Super secret secret',
