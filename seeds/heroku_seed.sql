@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS  ratr_db;
+CREATE DATABASE  ratr_db;
+USE ratr_db;
 
 /* Question Categories */
  INSERT INTO questioncategories(category,category_rank) VALUES('Compensation',9);
