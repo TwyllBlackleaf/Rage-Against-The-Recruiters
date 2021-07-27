@@ -4,7 +4,7 @@ const sequelize = require('../config/connection.js');
 
 class surveryAnswers extends Model { }
 
-surveryAnswers.init(
+surveyAnswers.init(
     {
         // define columns
         survey_answers_pk: {
