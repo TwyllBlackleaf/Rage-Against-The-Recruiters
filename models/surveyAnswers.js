@@ -7,18 +7,18 @@ class surveryAnswers extends Model { }
 surveryAnswers.init(
     {
         // define columns
-        surveyAnswers_pk: {
+        survey_answers_pk: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        questionsID_fk: {
+        questionsid_fk: {
             type: DataTypes.INTEGER,
             allowNull: true,
             foreignKey: true
         },
-        jobDetailsID_fk: {
+        job_detailsid_fk: {
             type: DataTypes.INTEGER,
             allowNull: true,
             foreignKey: true
@@ -27,7 +27,7 @@ surveryAnswers.init(
             type: DataTypes.STRING(50),
             allowNull: true
         },
-        answerScore: {
+        answer_score: {
             type: DataTypes.DECIMAL(10, 2),
             allowNull: true
         }

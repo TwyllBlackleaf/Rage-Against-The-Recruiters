@@ -7,7 +7,7 @@ class QuestionCategories extends Model { }
 QuestionCategories.init(
     {
         // define columns
-        categoryID_pk: {
+        categoryid_pk: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
@@ -17,7 +17,7 @@ QuestionCategories.init(
             type: DataTypes.STRING(25),
             allowNull: false
         },
-        categoryRank: {
+        category_rank: {
             type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 0
