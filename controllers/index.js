@@ -6,7 +6,8 @@ router.use('/', htmlRoutes);
 
 router.use('/api', apiRoutes);
 router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
+    res.locals.username = req.session.username;
+    res.render('index');
 });
 
 module.exports = router;
