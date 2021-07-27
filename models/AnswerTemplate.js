@@ -7,50 +7,50 @@ class AnswerTemplate extends Model { }
 AnswerTemplate.init(
     {
         // define columns
-        answerID_pk: {
+        answerid_pk: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        answerType: {
+        answer_type: {
             type: DataTypes.STRING(20),
             allowNull: true
         },
-        isDealBreaker: {
+        is_deal_breaker: {
             type: DataTypes.TINYINT,
             allowNull: false,
             defaultValue: 0
         },
-        answerInteger: {
+        answer_integer: {
             type: DataTypes.INTEGER,
             allowNull: true
         },
-        answerIntegerMax: {
+        answer_integer_max: {
             type: DataTypes.INTEGER,
             allowNull: true
         },
-        answerIntegerMin: {
+        answer_integer_min: {
             type: DataTypes.INTEGER,
             allowNull: true
         },
-        answerDecimal: {
+        answer_decimal: {
             type: DataTypes.DECIMAL(19, 4),
             allowNull: true
         },
-        answerText: {
+        answer_text: {
             type: DataTypes.STRING(50),
             allowNull: true
         },
-        answerBoolean: {
+        answer_boolean: {
             type: DataTypes.TINYINT,
             allowNull: true
         },
-        answerDate: {
+        answer_date: {
             type: DataTypes.DATE,
             allowNull: true
         },
-        sortOrder: {
+        sort_order: {
             type: DataTypes.INTEGER,
             allowNull: true,
         }
