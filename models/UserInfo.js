@@ -16,9 +16,9 @@ UserInfo.init(
         user_fk: {
             type: DataTypes.INTEGER,
             allowNull: true,
-            foreignKey:true
+            foreignKey: true
         },
-        userType: {
+        user_Type: {
             type: DataTypes.STRING(30),
             allowNull: false,
             foreignKey: true,
@@ -26,6 +26,10 @@ UserInfo.init(
         },
         first_name: {
             type: DataTypes.STRING(20),
+            allowNull: true
+        },
+        last_name: {
+            type: DataTypes.STRING(30),
             allowNull: true
         },
         email: {
