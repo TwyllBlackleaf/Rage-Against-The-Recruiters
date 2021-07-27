@@ -10,26 +10,6 @@ const surveyAnswers = require('./surveyAnswers');
 const QuestionCategories = require('./QuestionCategories');
 
 // create associations
-JobDetails.belongsTo(JobQuestions, {
-    foreignKey: 'jobDetailsID_fk'
-});
-Questions.belongsTo(JobQuestions, {
-    foreignKey: 'questionsID_fk'
-});
-AnswerTemplate.belongsTo(Answers, {
-    foreignKey: 'answerTemplateID_fk'
-});
-QuestionCategories.belongsTo(Questions, {
-    foreignKey: 'questionCategory_fk'
-});
-
-
-
-
-
-
-
-
 
 JobDetails.belongsToMany(Questions, {
     through: JobQuestions,
@@ -54,7 +34,11 @@ Questions.belongsTo(Answers, {
     foreignKey: 'answers_fk',
     onDelete: 'SET NULL'
 });
-QuestionCategories.belongsTo(Questions, {
+QuestionCategories.hasMany(Questions, {
+    foreignKey: 'question_category_fk'
+});
+
+Questions.belongsTo(QuestionCategories, {
     foreignKey: 'question_category_fk',
     onDelete: 'SET NULL'
 });
