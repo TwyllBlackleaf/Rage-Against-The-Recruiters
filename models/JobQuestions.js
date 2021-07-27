@@ -7,18 +7,18 @@ class JobQuestions extends Model { }
 JobQuestions.init(
     {
         // define columns
-        JobQuestionsID_pk: {
+        job_questionsid_pk: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        jobDetailsID_fk: {
+        job_detailsid_fk: {
             type: DataTypes.INTEGER,
             allowNull: true,
             foreignKey: true
         },
-        questionsID_fk: {
+        questionsid_fk: {
             type: DataTypes.INTEGER,
             allowNull: true,
             foreignKey: true
