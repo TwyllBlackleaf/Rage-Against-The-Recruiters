@@ -27,7 +27,6 @@ module.exports = function() {
             id: dbUserData.id,
             username: dbUserData.username,
             email: dbUserData.email,
-            // usertype
         };
         // user logged in
         return cb(null, user);
