@@ -1,4 +1,5 @@
 const User = require('./User');
+const UserInfo = require('./UserInfo');
 const Scorecard = require('./Scorecard');
 const Questions = require('./Questions');
 const JobQuestions = require('./JobQuestions');
@@ -11,17 +12,35 @@ const UserInfo = require('./UserInfo');
 
 // create associations
 
-JobDetails.belongsTo(JobQuestions, {
-    foreignKey: 'jobDetailsID_fk'
+JobDetails.belongsToMany(Questions, {
+    through: JobQuestions,
+    as: 'jobDetailsID_fk',
+    onDelete: 'SET NULL'
 });
-Questions.belongsTo(JobQuestions, {
-    foreignKey: 'questionsID_fk'
+User.belongsTo(UserInfo, {
+    foreignKey: user_fk
 });
-AnswerTemplate.belongsTo(Answers, {
-    foreignKey: 'answerTemplateID_fk'
+surveryAnswers.belongsTo(JobDetails, {
+    foreignKey: 'jobDetailsID_fk',
+    onDelete: 'SET NULL'
+});
+Questions.belongsToMany(surveryAnswers, {
+    foreignKey: 'questionID_fk'
+})
+AnswerTemplate.belongsToMany(Answers, {
+    foreignKey: 'answerTemplateID_fk',
+    onDelete: 'SET NULL'
+});
+Questions.belongsToMany(Answers, {
+    foreignKey: 'answers_fk',
+    onDelete: 'SET NULL'
 });
 QuestionCategories.belongsTo(Questions, {
-    foreignKey: 'questionCategory_fk'
+    foreignKey: 'questionCategory_fk',
+    onDelete: 'SET NULL'
+});
+Scorecard.belongsTo(JobDetails, {
+    foreignKey: 'jobDetailsID_fk'
 });
 
 

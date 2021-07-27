@@ -13,6 +13,11 @@ UserInfo.init(
             primaryKey: true,
             autoIncrement: true
         },
+        user_fk: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            foreignKey:true
+        },
         userType: {
             type: DataTypes.STRING(30),
             allowNull: false,
