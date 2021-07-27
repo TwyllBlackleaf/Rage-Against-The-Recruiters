@@ -13,21 +13,22 @@ const QuestionCategories = require('./QuestionCategories');
 
 JobDetails.belongsToMany(Questions, {
     through: JobQuestions,
-    as: 'jobDetailsID_fk',
+    as: 'job_detailsid_fk',
     onDelete: 'SET NULL'
 });
 User.belongsTo(UserInfo, {
     foreignKey: 'user_fk'
 });
+
 surveyAnswers.belongsTo(JobDetails, {
-    foreignKey: 'jobDetailsID_fk',
+    foreignKey: 'job_detailsid_fk',
     onDelete: 'SET NULL'
 });
 Questions.belongsTo(surveyAnswers, {
-    foreignKey: 'questionID_fk'
-})
+    foreignKey: 'questionid_fk'
+});
 AnswerTemplate.belongsTo(Answers, {
-    foreignKey: 'answerTemplateID_fk',
+    foreignKey: 'answer_templateid_fk',
     onDelete: 'SET NULL'
 });
 Questions.belongsTo(Answers, {
@@ -35,11 +36,11 @@ Questions.belongsTo(Answers, {
     onDelete: 'SET NULL'
 });
 QuestionCategories.belongsTo(Questions, {
-    foreignKey: 'questionCategory_fk',
+    foreignKey: 'question_category_fk',
     onDelete: 'SET NULL'
 });
 Scorecard.belongsTo(JobDetails, {
-    foreignKey: 'jobDetailsID_fk'
+    foreignKey: 'job_detailsid_fk'
 });
 
 

@@ -15,6 +15,10 @@
     "passport-local": "^1.0.0",
     "sequelize": "^6.6.5"
   },
+<<<<<<< HEAD
+=======
+  "devDependencies": {},
+>>>>>>> d83103f4bec34a811b32cb34abff7f81462c46c0
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"

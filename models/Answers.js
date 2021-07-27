@@ -7,22 +7,22 @@ class Answers extends Model { }
 Answers.init(
     {
         // define columns
-        answersID_pk: {
+        answersid_pk: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        answerTemplateID_fk: {
+        answer_templateid_fk: {
             type: DataTypes.INTEGER,
             allowNull: true,
             foreignKey: true
         },
-        answerQuestionID_fk: {
+        answer_questionid_fk: {
             type: DataTypes.INTEGER,
             allowNull: true
         },
-        answerScoreModifier: {
+        answer_score_modifier: {
             type: DataTypes.DECIMAL(5, 2),
             allowNull: false,
             defaultValue: 0.00

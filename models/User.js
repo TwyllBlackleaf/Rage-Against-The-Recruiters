@@ -38,7 +38,7 @@ User.init(
                 len: [8]
             }
         },
-        userType: {
+        user_type: {
             type: DataTypes.STRING(30),
             allowNull: false,
             foreignKey: true,
