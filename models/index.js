@@ -23,14 +23,14 @@ surveryAnswers.belongsTo(JobDetails, {
     foreignKey: 'jobDetailsID_fk',
     onDelete: 'SET NULL'
 });
-Questions.belongsToMany(surveryAnswers, {
+Questions.belongsTo(surveryAnswers, {
     foreignKey: 'questionID_fk'
 })
-AnswerTemplate.belongsToMany(Answers, {
+AnswerTemplate.belongsTo(Answers, {
     foreignKey: 'answerTemplateID_fk',
     onDelete: 'SET NULL'
 });
-Questions.belongsToMany(Answers, {
+Questions.belongsTo(Answers, {
     foreignKey: 'answers_fk',
     onDelete: 'SET NULL'
 });
