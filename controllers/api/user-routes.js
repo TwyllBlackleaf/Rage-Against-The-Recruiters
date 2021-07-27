@@ -20,14 +20,15 @@ router.post('/', (req, res) => {
     User.create({
       username: req.body.username,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      userType: req.body.accountType
     })
       .then(dbUserData => {
         req.session.save(() => {
           req.session.user_id = dbUserData.id;
           req.session.username = dbUserData.username;
           req.session.email = dbUserData.email;
-        //   req.session.usertype
+          req.session.userType = dbUserData.userType;
           req.session.loggedIn = true;
     
           res.json(dbUserData);
