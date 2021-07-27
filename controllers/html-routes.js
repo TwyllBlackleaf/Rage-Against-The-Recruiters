@@ -16,5 +16,5 @@ router.get('/', (req, res) => {
     res.locals.username = req.session.username;
     res.render('index');
 })
-
+    
 module.exports = router;
