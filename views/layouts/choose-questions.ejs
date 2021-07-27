@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head.ejs") %>
+    <title>Document</title>
+    
+</head>
+<body>
+    <%- include("../partials/header"); %>
+    
+    <main class="row">
+        <div class="col-12">
+            <h1>Choose Questions</h1>
+        </div>
+        <div class="col-md-3">
+            <h3>Categories</h3>
+            <ul class="nav flex-column">
+                <li id="top-3s">
+                    Top 3 Wants and Avoids
+                </li>
+                <li id="compensation-benefits">
+                    Compensation and Benefits
+                </li>
+                <li id="workplace-perks">
+                    Workplace Environment and Perks
+                </li>
+                <li id="location-travel">
+                    Location, Commute, and Travel
+                </li>
+                <li id="education-experience">
+                    Education and Work Experience
+                </li>
+                <li>
+                    Eligibility
+                </li>
+                <li>
+                    Company Policy
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <% categories.forEach(category => { %>
+                <h4><%= category.name %></h4>
+                <% category.forEach(question => { %>
+                    <li>
+                        <p><% question.text %></p>
+                    </li>
+                <% }) %>
+            <% }) %>
+        </div>
+
+    </main>
+
+
+    <%- include("../partials/footer"); %>
+</body>
+</html>

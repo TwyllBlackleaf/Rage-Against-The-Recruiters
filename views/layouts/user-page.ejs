@@ -1,0 +1,12 @@
+
+
+
+
+<h3>Opportunities:</h3>
+<% placeholders.forEach(placeholder => { %>
+    <li>
+        <%= placeholder.name %>
+        Submitted by: <%= placeholder.recruiter %>
+        Score: <%= placeholder.score %>
+    </li>
+<% }); %>
