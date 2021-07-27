@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `ratr_db`.`Scorecard` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION); 
   
-CREATE TABLE IF NOT EXISTS `ratr_db`.`surveryAnswers` (
+CREATE TABLE IF NOT EXISTS `ratr_db`.`surveyAnswers` (
   `surveyAnswers_pk` INT NOT NULL AUTO_INCREMENT,
   `questionsID_fk` INT NULL,
   `jobDetailsID_fk` INT NULL,
