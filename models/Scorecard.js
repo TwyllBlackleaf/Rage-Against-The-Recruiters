@@ -13,6 +13,11 @@ Scorecard.init(
             primaryKey: true,
             autoIncrement: true
         },
+        userid_fk: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            foreignKey: true
+        },
         recruiterid_fk: {
             type: DataTypes.INTEGER,
             allowNull: true,
