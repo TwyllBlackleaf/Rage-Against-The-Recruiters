@@ -28,8 +28,19 @@ router.post('/', (req, res) => {
           req.session.email = dbUserData.email;
           req.session.loggedIn = true;
     
-          res.json(dbUserData);
+          // res.json(dbUserData);
         });
+        let user = {
+          email: req.body.email,
+          username: req.body.username,
+          password: dbUserData.password
+        }
+        req.login(user, function(err) {
+          if (err) {
+            return next(err);
+          }
+          res.redirect('/');
+        })
       })
       .catch(err => {
         console.log(err);
@@ -39,24 +50,24 @@ router.post('/', (req, res) => {
 
 // login
 router.post('/login', passport.authenticate('local', { 
-  successRedirect: '/',
   failureRedirect: '/login' 
 }),
 function(req, res) {
-  res.json({ user: req.user })
+  // res.json({ user: req.user })
+  res.redirect('/');
 });
 
 // logout
-router.get('/logout', (req, res) => {
+router.post('/logout', (req, res) => {
   req.logout();
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  }
-  else {
-    res.status(404).end();
-  }
+  // if (req.session.loggedIn) {
+  //   req.session.destroy(() => {
+  //     res.status(204).end();
+  //   });
+  // }
+  // else {
+  //   res.status(404).end();
+  // }
   res.redirect('/');
 });
 
