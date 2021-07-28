@@ -9,16 +9,26 @@ const Answers = require('./Answers');
 const surveyAnswers = require('./surveyAnswers');
 const QuestionCategories = require('./QuestionCategories');
 
+
 // create associations
 
 JobDetails.belongsToMany(Questions, {
     through: JobQuestions,
-    as: 'job_detailsid_fk',
+    foreignKey: 'questionsid_fk',
     onDelete: 'SET NULL'
 });
-Questions.hasMany(JobDetails, {
-    foreignKey: 'job_detailsid_fk' 
-})
+Questions.belongsToMany(JobDetails, {
+    through: JobQuestions,
+    foreignKey: 'questionsid_fk' 
+});
+
+    // JobDetails.hasMany(JobQuestions, {foreignKey: 'job_questionsid_fk', sourceKey: 'job_questionsid_pk'});
+    // JobQuestions.belongsTo(JobDetails, {foreignKey: 'job_detailsid_fk', targetKey: 'job_detailsid_pk'});
+
+    // Questions.belongsTo(JobQuestions, {foreignKey: 'job_questionsid_fk', sourceKey: 'job_questionsid_pk'});
+    // JobQuestions.hasMany(Questions, {foreignKey: 'job_detailsid_fk', targetKey: 'job_detailsid_pk'});
+
+
 UserInfo.belongsToMany(Questions, {
     through: JobQuestions,
     as: 'userid_fk',
@@ -32,21 +42,21 @@ User.belongsTo(UserInfo, {
     foreignKey: 'user_fk'
 });
 
-JobDetails.belongsTo(surveyAnswers,{
+JobDetails.hasMany(surveyAnswers,{
     foreignKey: 'job_detailsid_fk'
 })
-surveyAnswers.hasMany(JobDetails, {
+surveyAnswers.belongsTo(JobDetails, {
     foreignKey: 'job_detailsid_fk',
     onDelete: 'SET NULL'
 });
 
 
-Questions.belongsTo(surveyAnswers, {
-    foreignKey: 'questionid_fk',
+Questions.hasMany(surveyAnswers, {
+    foreignKey: 'questionsid_fk',
     onDelete: 'SET NULL'
 });
-surveyAnswers.hasMany(Questions,{
-    foreignKey: 'questionid_fk'
+surveyAnswers.belongsTo(Questions,{
+    foreignKey: 'questionsid_fk'
 });
 
 AnswerTemplate.belongsTo(Answers, {

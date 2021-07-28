@@ -25,7 +25,7 @@ INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modif
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',0,0);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(4,3,0.40);
 INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(2,3,'boolean',0,'Is there a retirement plan?',10.00,1);
--- Question 4: Is there an employer funding match? (benefits)
+-- Question 4: What amount of employer funding match? (benefits)
 INSERT INTO answertemplate(answer_type,is_deal_breaker) VALUES('decimal',0);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(5,4,1.00);
 INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(2,4,'decimal',0,'What amount of employer matching funds for retirement?',10.00,1);
@@ -35,7 +35,7 @@ INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modif
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',1,0);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(7,5,0.30);
 INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(2,6,'boolean',1,'Do you provide medical insurance?',10.00,1);
--- Question 6: Is there medical coverage? (benefits/dealbreaker)
+-- Question 6: Is there family medical coverage? (benefits/dealbreaker)
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',0,1);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(8,6,1.00);
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',1,0);
@@ -215,6 +215,9 @@ Position does not qualify for work visa sponsorship.',67500,
 
 /* SurveyAnswers */
 -- Job 1 Answers
- INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(1,1,1,'57500',10)
- INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(1,1,1,'3500',10)
-  INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(1,1,1,'3500',10)
+ INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(1,1,1,'57500',10);
+ INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(2,1,1,'3500',10);
+INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(3,1,1,'True',10);
+ INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(4,1,1,'2000',10);
+ INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(5,1,1,'True',10);
+INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(6,1,1,'True',10);
