@@ -28,6 +28,10 @@ UserInfo.init(
             type: DataTypes.STRING(20),
             allowNull: true
         },
+        last_name: {
+            type: DataTypes.STRING(30),
+            allowNull: true
+        },
         email: {
             type: DataTypes.STRING(50),
             allowNull: false
