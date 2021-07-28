@@ -97,3 +97,97 @@ INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modif
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',0, 1);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(26,17,0.6);
 INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(7,25,'boolean',0,'Does your company sponser visa applicants?',7.50,1);
+
+/* User Info */
+-- Developer User 1 - Donna Developer
+ INSERT INTO userinfo(user_type,first_name,last_name,
+ email,phone,preferred_location,
+ user_url,company,facebook,
+ twitter,linkedin,active,
+ verified,want1,want2,
+ want3,avoid1,avoid2,avoid3) VALUES
+ ('Developer','Donna','Developer',
+ 'donna@codemonkey.com','212-555-1234','New York City',
+ 'www.codemonkey.com','CodeMonkey','donnaD@facebook',
+ '@donnaDevMonkey','donnaDev@linkedin.com',1,
+ 0,'Corner Office','Pet Friendly',
+ 'Close to Coffee','Meetings','Company Outings','Bad office coffee');
+
+ -- Developer User 2 - Kolby Coder
+ INSERT INTO userinfo(user_type,first_name,last_name,
+ email,phone,preferred_location,
+ user_url,company,facebook,
+ twitter,linkedin,active,
+ verified,want1,want2,
+ want3,avoid1,avoid2,avoid3) VALUES
+ ('Developer','Kolby','Coder',
+ 'kakakacolby@gmail.net','808-808-0987','Wailea Point',
+ 'www.surferdude.net','SurfNSoftware','kcolby@facebook',
+ '@kakakacolby','kakakacolby@linkedin.com',1,
+ 0,'Cool Buzz','Tasty Waves',
+ 'Short Board','Meetings','Company Outings','Bad office coffee');
+-- Recruiter User 1 - Robbie Recruiter
+ INSERT INTO userinfo(user_type,first_name,last_name,
+ email,phone,preferred_location,
+ user_url,company,facebook,
+ twitter,linkedin,active,
+ verified,want1,want2,
+ want3,avoid1,avoid2,avoid3) VALUES
+ ('Recruiter','Robbie','Recruiter',
+ 'rrecruiter@hirepeople.com','615-321-3210','Nashville',
+ 'www.hirepeople.com','HirePeople','rrHirePeople@facebook',
+ '@rrHirePeople','rrecruiter@linkedin.com',1,
+ 0,'','',
+ '','','','');
+ -- Recruiter User 2 - Alice Cooper
+  INSERT INTO userinfo(user_type,first_name,last_name,
+ email,phone,preferred_location,
+ user_url,company,facebook,
+ twitter,linkedin,active,
+ verified,want1,want2,
+ want3,avoid1,avoid2,avoid3) VALUES
+ ('Recruiter','Alice','Cooper',
+ 'alicecooper@madman.com','555-123-4567','Norfolk',
+ 'www.madman.com','MadMan','alicecooper@facebook',
+ '@alicecooper','alicecooperr@linkedin.com',1,
+ 0,'','',
+ '','','','');
+
+ /* Job Details */
+ -- Job 1 Jr Developer
+  INSERT INTO jobdetails(recruiterid_fk,job_questionsid_fk,job_classification,
+  job_title,job_description,base_salary,
+  bonus_flat,retirement_plan_avail,
+  employer_matching_percentage,paid_vacation_days,paid_sick_days,
+  paid_holidays,medical_coverage_avail,family_coverage_avail,
+  medical_coverage_employer_percentage,dental_coverage_avail,
+  vision_coverage_avail,life_insurance_avail,spouse_life_insurance_avail,
+  add_benefits_employer_percentage) VALUES
+  (3,1,'Full Time Employee',
+  'Jr Developer','Mega Commerce is a one-of-a-kind retail platform that sits at the intersection of content and commerce. As one of the fastest growing bootstrapped companies in the Midwest, we are looking for more of the core team to help us scale. We connect trusted editorial content written by experts with online retailers to drive consumer engagement and conversion. Our innovations help Consumers win in their online shopping journey. When Consumers win— retailers, publishers, and brands win too.We are currently looking to build out a development team that is super adaptable to develop, manage, and maintain a wide range of internal and external facing software applications.Our scale is big. Our vision is bigger. If you want to grow with a tight-knit team in a fast-paced environment that is disrupting the way the world shops online then we have the opportunity for you.',57500,
+  3500,1,50,
+  8,5,6,
+  1,0,80,
+  1,0,0,0,0);
+
+    INSERT INTO jobdetails(recruiterid_fk,job_questionsid_fk,job_classification,
+  job_title,job_description,base_salary,
+  bonus_flat,retirement_plan_avail,
+  employer_matching_percentage,paid_vacation_days,paid_sick_days,
+  paid_holidays,medical_coverage_avail,family_coverage_avail,
+  medical_coverage_employer_percentage,dental_coverage_avail,
+  vision_coverage_avail,life_insurance_avail,spouse_life_insurance_avail,
+  add_benefits_employer_percentage) VALUES
+  (3,1,'Contract to Hire',
+  'QA Analyst','Summary:
+
+Are you passionate about working in a company that serves a meaningful purpose?
+Do you love releasing high-quality products?
+Want to work with modern technology in the cloud?
+We are excited to talk to you! Aymira Healthcare Technologies, owner and creator of OnTarget, is looking for a QA Automation Test Engineer to join us on this journey and be a core member of the team. This position will impact a rapidly growing organization. We offer great compensation, benefits and work with a great team!
+
+Position does not qualify for work visa sponsorship.',67500,
+  3500,1,50,
+  8,5,6,
+  1,0,80,
+  1,0,0,0,0);
