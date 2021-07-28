@@ -156,35 +156,35 @@ INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_brea
  /* Job Details */
  -- Job 1 Jr Developer
   INSERT INTO jobdetails(recruiterid_fk,job_questionsid_fk,job_classification,
-  job_title,job_description,base_salary,
+  company,job_title,job_description,base_salary,
   bonus_flat,retirement_plan_avail,
   employer_matching_percentage,paid_vacation_days,paid_sick_days,
   paid_holidays,medical_coverage_avail,family_coverage_avail,
   medical_coverage_employer_percentage,dental_coverage_avail,
   vision_coverage_avail,life_insurance_avail,spouse_life_insurance_avail,
   add_benefits_employer_percentage) VALUES
-  (3,1,'Full Time Employee',
-  'Jr Developer','Mega Commerce is a one-of-a-kind retail platform that sits at the intersection of content and commerce. As one of the fastest growing bootstrapped companies in the Midwest, we are looking for more of the core team to help us scale. We connect trusted editorial content written by experts with online retailers to drive consumer engagement and conversion. Our innovations help Consumers win in their online shopping journey. When Consumers win— retailers, publishers, and brands win too.We are currently looking to build out a development team that is super adaptable to develop, manage, and maintain a wide range of internal and external facing software applications.Our scale is big. Our vision is bigger. If you want to grow with a tight-knit team in a fast-paced environment that is disrupting the way the world shops online then we have the opportunity for you.',57500,
+  (3,1,'Full Time Employee','Mega Commerce',
+  'Jr Developer','Mega Commerce is a one-of-a-kind retail platform that sits at the intersection of content and commerce. As one of the fastest growing bootstrapped companies in the Midwest, we are looking for more of the core team to help us scale. We connect trusted editorial content written by experts with online retailers to drive consumer engagement and conversion. Our innovations help Consumers win in their online shopping journey. When Consumers win... retailers, publishers, and brands win too.We are currently looking to build out a development team that is super adaptable to develop, manage, and maintain a wide range of internal and external facing software applications.Our scale is big. Our vision is bigger. If you want to grow with a tight-knit team in a fast-paced environment that is disrupting the way the world shops online then we have the opportunity for you.',57500,
   3500,1,50,
   8,5,6,
   1,0,80,
   1,0,0,0,0);
 
     INSERT INTO jobdetails(recruiterid_fk,job_questionsid_fk,job_classification,
-  job_title,job_description,base_salary,
+  company,job_title,job_description,base_salary,
   bonus_flat,retirement_plan_avail,
   employer_matching_percentage,paid_vacation_days,paid_sick_days,
   paid_holidays,medical_coverage_avail,family_coverage_avail,
   medical_coverage_employer_percentage,dental_coverage_avail,
   vision_coverage_avail,life_insurance_avail,spouse_life_insurance_avail,
   add_benefits_employer_percentage) VALUES
-  (4,1,'Contract to Hire',
+  (4,1,'Contract to Hire','Rimaya Health',
   'QA Analyst','Summary:
 
 Are you passionate about working in a company that serves a meaningful purpose?
 Do you love releasing high-quality products?
 Want to work with modern technology in the cloud?
-We are excited to talk to you! Aymira Healthcare Technologies, owner and creator of OnTarget, is looking for a QA Automation Test Engineer to join us on this journey and be a core member of the team. This position will impact a rapidly growing organization. We offer great compensation, benefits and work with a great team!
+We are excited to talk to you! Rimaya Healthcare Technologies, owner and creator of TargetedHealth, is looking for a QA Automation Test Engineer to join us on this journey and be a core member of the team. This position will impact a rapidly growing organization. We offer great compensation, benefits and work with a great team!
 
 Position does not qualify for work visa sponsorship.',67500,
   3500,1,50,
@@ -215,9 +215,12 @@ Position does not qualify for work visa sponsorship.',67500,
 
 /* SurveyAnswers */
 -- Job 1 Answers
- INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(1,1,1,'57500',10);
- INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(2,1,1,'3500',10);
-INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(3,1,1,'True',10);
- INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(4,1,1,'2000',10);
- INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(5,1,1,'True',10);
-INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(6,1,1,'True',10);
+ INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(1,1,3,'57500',10);
+ INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(2,1,3,'3500',10);
+INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(3,1,3,'True',10);
+ INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(4,1,3,'2000',10);
+ INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(5,1,3,'True',10);
+INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(6,1,3,'True',10);
+ -- Job 2 Answers
+ INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(1,2,4,'67250',10);
+ INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(2,2,4,'500',10);
