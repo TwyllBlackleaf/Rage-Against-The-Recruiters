@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
       });
   });  
 
+// create an account
 router.post('/', (req, res) => {
     User.create({
       username: req.body.username,
@@ -36,26 +37,16 @@ router.post('/', (req, res) => {
       });
   });  
 
-// router.post('/login', passport.authenticate('local', {
-//     successRedirect: '/',
-//     failureRedirect: '/login',
-//     failureMessage: false
-// }));
-
+// login
 router.post('/login', passport.authenticate('local', { 
   successRedirect: '/',
   failureRedirect: '/login' 
 }),
 function(req, res) {
-  req.session.save(() => {
-    req.session.user_id = dbUserData.id;
-    req.session.username = dbUserData.username;
-    req.session.email = dbUserData.email;
-    req.session.loggedIn = true;
-    res.json({ user: req.user })
-  })
-})
+  res.json({ user: req.user })
+});
 
+// logout
 router.get('/logout', (req, res) => {
   req.logout();
   if (req.session.loggedIn) {

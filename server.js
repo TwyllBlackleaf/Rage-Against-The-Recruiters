@@ -4,23 +4,13 @@ const ejs = require('ejs');
 const session = require('express-session');
 const passport = require('passport');
 
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sequelize = require("./config/connection");
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
-require('./utils/auth')();
-
-
 const sess = {
     secret: 'Super secret secret',
     cookie: {},
@@ -31,16 +21,25 @@ const sess = {
     })
 };
 
+require('./utils/auth')();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(session(sess));
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     var msgs = req.session.messages || [];
     res.locals.messages = msgs;
-    res.locals.hasMessages = !! msgs.length;
+    res.locals.hasMessages = !!msgs.length;
     req.session.messages = [];
     next();
 });
-
 
 app.use(passport.initialize());
 app.use(passport.authenticate('session'));
