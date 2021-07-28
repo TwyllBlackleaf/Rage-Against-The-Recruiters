@@ -53,6 +53,11 @@ const { User, UserInfo } = require('../../models');
 //             res.status(500).json(err);
 //         });
 // });
+router.get('/user/:id', (req, res) => {
+    res.locals.username = req.session.username;
+    User.findOne({
+    });
+});
 
 
 module.exports = router;

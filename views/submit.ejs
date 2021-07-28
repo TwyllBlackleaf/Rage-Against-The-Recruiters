@@ -1,12 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <% include('./partials/head'); %>
+    <%- include('./partials/head'); %>
     <title>Document</title>
 </head>
 <body>
     <%- include("./partials/header"); %>
 
+    <main class="row">
+        <nav class="col-12 col-md-3">
+            <h3>Categories:</h3>
+            <ul>
+                <% categories.forEach(category => { %>
+                    <% var catHref = "#catId" + category.categoryid_pk; %>
+                    <li>                 
+                        <a  href=<%= catHref %> > category.category </a>
+                    </li>
+                <% }); %>   
+            </ul>
+        </nav>
+        
+        <div class="col-12 col-md-9">
+            <% categories.forEach(category => { %>
+                <% var categoryId = "catId" + category.categoryid_pk; %>
+                <h4 id=<%= categoryId %> ><%= category.category %> </h4>
+
+                <form>
+                    <% category.questions.forEach(question => { %>
+                        <% var idString = question.questionid_pk.toString(); %>
+                        <input type="checkbox" id=<%= idString %> >
+                        <label for=<%= idString %> >Set your preference for this question:</label>
+                        <p><%= question.question_text %></p>
+
+                        <% switch (question.question_type) { %>
+                            <% case 'integer': %>
+                                <% const maxId = "max" + idString; %>
+                                <% const minId = "min" + idString; %>
+    
+                                <label for=<%= maxId %> >Maximum value: </label>
+                                <input type="number" id=<%= maxId %> name=<%= maxId %> >
+    
+                                <label for=<%= minId %> >Minimum value: </label>
+                                <input type="number" id=<%= minId %> name=<%= minId %> >
+                            <% break; %>
+                            <% case 'boolean': %>
+                                <% const boolName = "bool" + idString; %>
+                                
+                            <% break; %>
+                        <% } %>
+                    
+
+                    <% }); %>
+                
+                <button>Submit</button>
+                </form>
+            <% }); %>
+        </div>
+    </main>
+    
     <%- include("./partials/footer"); %>
 </body>
 </html>

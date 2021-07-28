@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Questions, QuestionCategories, JobQuestions } = require('../../models');
 
 router.get('/', async (req, res) => {
+    res.locals.username = req.session.username;
     const categories = await QuestionCategories.findAll({
         attributes: [
             "categoryid_pk",
@@ -31,6 +32,9 @@ router.post('/', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
+    res.locals.username = req.session.username;
+    //     Post.create({
+    //     });
 });
 
 

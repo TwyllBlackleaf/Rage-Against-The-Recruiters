@@ -16,6 +16,11 @@ JobDetails.belongsToMany(Questions, {
     as: 'job_detailsid_fk',
     onDelete: 'SET NULL'
 });
+UserInfo.belongsToMany(Questions, {
+    through: JobQuestions,
+    as: 'userid_fk',
+    onDelete: 'SET NULL'
+});
 User.belongsTo(UserInfo, {
     foreignKey: 'user_fk'
 });
@@ -31,6 +36,9 @@ AnswerTemplate.belongsTo(Answers, {
     foreignKey: 'answer_templateid_fk',
     onDelete: 'SET NULL'
 });
+Answers.hasMany(AnswerTemplate,{
+    foreignKey: 'answer_templateid_fk'
+})
 Questions.belongsTo(Answers, {
     foreignKey: 'answers_fk',
     onDelete: 'SET NULL'
