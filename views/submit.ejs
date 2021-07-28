@@ -14,25 +14,32 @@
                 <% categories.forEach(category => { %>
                     <% var catHref = "#catId" + category.categoryid_pk; %>
                     <li>                 
-                        <a  href=<%= catHref %> > category.category </a>
+                        <a  href=<%= catHref %> ><%= category.category %></a>
                     </li>
                 <% }); %>   
             </ul>
         </nav>
         
         <div class="col-12 col-md-9">
-            <% categories.forEach(category => { %>
-                <% var categoryId = "catId" + category.categoryid_pk; %>
-                <h4 id=<%= categoryId %> ><%= category.category %> </h4>
+            <form id="submit-form">
+                <% for (i = 1; i < 8; i++) { %>
+                    <% const catQuestions = categories.filter(category => category.categoryid_pk === i); %>
+                    <% if (catQuestions) { %>
+                        <% const catId = "catId" + catQuestions[0].categoryid_pk; %>
+                        <h4 id=<%= catId %> ><%= catQuestions[0].category %></h4>
+                        <% catQuestions.forEach(question => { %>
+                            <% var idString = question.Questions.questionid_pk.toString(); %>
+                            <input type="checkbox" id=<%= idString %> >
+                            <label for=<%= idString %> ><%= question.Questions.question_text %> </label>
+                            <p>Question type: <%= question.Questions.question_type %></p>
+                        <% }); %>
+                    <% } %>
+                <% } %>
+            </form>
 
-                <form>
-                    <% category.questions.forEach(question => { %>
-                        <% var idString = question.questionid_pk.toString(); %>
-                        <input type="checkbox" id=<%= idString %> >
-                        <label for=<%= idString %> >Set your preference for this question:</label>
-                        <p><%= question.question_text %></p>
-
-                        <% switch (question.question_type) { %>
+                        
+            
+            <% switch (question.question_type) { %>
                             <% case 'integer': %>
                                 <% const maxId = "max" + idString; %>
                                 <% const minId = "min" + idString; %>
@@ -50,11 +57,10 @@
                         <% } %>
                     
 
-                    <% }); %>
+                   
                 
                 <button>Submit</button>
-                </form>
-            <% }); %>
+
         </div>
     </main>
     
