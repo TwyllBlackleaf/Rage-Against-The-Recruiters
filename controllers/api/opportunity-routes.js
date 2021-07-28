@@ -38,22 +38,23 @@ router.get('/', async (req, res) => {
         ],
         include: [
             {
-                model: Questions,
-                include: [
-                    {
-                        model: surveyAnswers,
-                        attributes: [
-                //             'survey_answers_pk',
-                             'questionsid_fk',
-                //             'job_detailsid_fk',
-                            'answer',
-                            'answer_score'
-                        ],
+                model: surveyAnswers,
+                attributes: [
+                    //             'survey_answers_pk',
+                    'questionsid_fk',
+                    //             'job_detailsid_fk',
+                    'answer',
+                    'answer_score'],
+                    include: [
+                        {
+                            model: Questions
+                        }
+                        ]
                     }
                 ]
             }
-        ],
-    })
+        )
+    
 
     //console.log(opportunities);
     res.json({opportunities});

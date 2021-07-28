@@ -29,11 +29,6 @@ Questions.belongsToMany(JobDetails, {
     // JobQuestions.hasMany(Questions, {foreignKey: 'job_detailsid_fk', targetKey: 'job_detailsid_pk'});
 
 
-
-
-
-
-
 UserInfo.belongsToMany(Questions, {
     through: JobQuestions,
     as: 'userid_fk',
