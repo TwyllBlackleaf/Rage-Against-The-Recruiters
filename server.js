@@ -4,6 +4,7 @@ const ejs = require('ejs');
 const session = require('express-session');
 const passport = require('passport');
 
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -33,10 +34,10 @@ const sess = {
 
 app.use(session(sess));
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     var msgs = req.session.messages || [];
     res.locals.messages = msgs;
-    res.locals.hasMessages = !! msgs.length;
+    res.locals.hasMessages = !!msgs.length;
     req.session.messages = [];
     next();
 });
