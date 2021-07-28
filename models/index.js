@@ -34,7 +34,11 @@ Questions.belongsTo(Answers, {
     foreignKey: 'answers_fk',
     onDelete: 'SET NULL'
 });
-QuestionCategories.belongsTo(Questions, {
+QuestionCategories.hasMany(Questions, {
+    foreignKey: 'question_category_fk'
+});
+
+Questions.belongsTo(QuestionCategories, {
     foreignKey: 'question_category_fk',
     onDelete: 'SET NULL'
 });
