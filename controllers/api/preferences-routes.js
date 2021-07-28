@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Questions, QuestionCategories } = require('../../models');
+const { Questions, QuestionCategories, JobQuestions } = require('../../models');
 
 router.get('/', async (req, res) => {
     const categories = await QuestionCategories.findAll({
@@ -23,8 +23,14 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    //     Post.create({
-    //     });
+    JobQuestions.create({
+        questionsid_fk: req.body.questionsid_fk,
+        userid_fk: req.body.userid_fk
+    }).then(dbJobQuestionsData => res.json(dbJobQuestionsData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 
