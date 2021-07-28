@@ -213,3 +213,8 @@ Position does not qualify for work visa sponsorship.',67500,
               INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,16,1);
               INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,17,1);
 
+/* SurveyAnswers */
+-- Job 1 Answers
+ INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(1,1,1,'57500',10)
+ INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(1,1,1,'3500',10)
+  INSERT INTO ratr_db.surveyanswers(questionsid_fk,job_detailsid_fk,userid_fk,answer,answer_score) VALUES(1,1,1,'3500',10)

@@ -16,6 +16,7 @@ JobDetails.belongsToMany(Questions, {
     as: 'job_detailsid_fk',
     onDelete: 'SET NULL'
 });
+Questions.hasMany
 UserInfo.belongsToMany(Questions, {
     through: JobQuestions,
     as: 'userid_fk',
@@ -24,6 +25,7 @@ UserInfo.belongsToMany(Questions, {
 User.belongsTo(UserInfo, {
     foreignKey: 'user_fk'
 });
+
 surveyAnswers.belongsTo(JobDetails, {
     foreignKey: 'job_detailsid_fk',
     onDelete: 'SET NULL'
