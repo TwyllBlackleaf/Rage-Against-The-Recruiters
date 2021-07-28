@@ -1,11 +1,5 @@
 const router = require('express').Router();
-const { User, JobDetails, surveyAnswers, Questions, JobQuestions } = require('../../models');
-
-router.get('/submit/:id', (req, res) => {
-    res.locals.username = req.session.username;
-    User.findOne({
-    });
-});
+const { User, JobDetails, surveyAnswers, Questions, JobQuestions, Answers, AnswerTemplate } = require('../../models');
 
 router.get('/', async (req, res) => {
     const opportunities = await JobDetails.findAll({
