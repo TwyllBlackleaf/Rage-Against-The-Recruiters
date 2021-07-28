@@ -36,10 +36,14 @@ UserInfo.belongsToMany(Questions, {
 });
 Questions.hasMany(UserInfo, {
     foreignKey: 'userid_fk' 
-})
+});
 
 User.belongsTo(UserInfo, {
-    foreignKey: 'user_fk'
+    foreignKey: 'user_fk',
+    onDelete: 'SET NULL'
+});
+UserInfo.hasOne(User,{
+       foreignKey: 'user_fk'    
 });
 
 JobDetails.hasMany(surveyAnswers,{
