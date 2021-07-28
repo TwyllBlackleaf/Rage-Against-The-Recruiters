@@ -16,7 +16,7 @@ INSERT INTO answertemplate(answer_type,is_deal_breaker,answer_integer_max,answer
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(1,1,1.00);
 INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(1,1,'integer',1,'What is the yearly base salary?',10.00,1);
 -- Question 2: What is the yearly bonus? (compensation)
-INSERT INTO answertemplate(answer_type,is_deal_breaker) VALUES('integer',0);
+INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_integer_max, answer_integer_min) VALUES('integer',0,100000,0);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(2,2,1.00);
 INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(2,2,'integer',0,'What is the approximate yearly bonus?',10.00,1);
 -- Question 3: Is there a retirement plan available? (benefits)
@@ -178,7 +178,7 @@ INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_brea
   medical_coverage_employer_percentage,dental_coverage_avail,
   vision_coverage_avail,life_insurance_avail,spouse_life_insurance_avail,
   add_benefits_employer_percentage) VALUES
-  (3,1,'Contract to Hire',
+  (4,1,'Contract to Hire',
   'QA Analyst','Summary:
 
 Are you passionate about working in a company that serves a meaningful purpose?
@@ -191,3 +191,25 @@ Position does not qualify for work visa sponsorship.',67500,
   8,5,6,
   1,0,80,
   1,0,0,0,0);
+
+  /* Job Questions */
+  -- Job 1 Questions --
+  
+  INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,1,1);
+   INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,2,1);
+    INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,3,1);
+     INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,4,1);
+      INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,5,1);
+       INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,6,1);
+        INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,7,1);
+         INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,8,1);
+          INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,9,1);
+           INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,10,1);
+            INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,11,1);
+             INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,12,1);
+              INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,13,1);
+              INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,14,1);
+              INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,15,1);
+              INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,16,1);
+              INSERT INTO jobquestions(job_detailsid_fk,questionsid_fk,userid_fk) VALUES(1,17,1);
+
