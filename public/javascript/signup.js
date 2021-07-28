@@ -6,7 +6,6 @@ async function signupFormHandler(event) {
     const password = document.querySelector('#password-signup').value.trim();
 
     if (username && email && password) {
-        // fetch url needs to be updated
         const response = await fetch('/api/users', {
             method: 'post',
             body: JSON.stringify({
@@ -16,9 +15,8 @@ async function signupFormHandler(event) {
             }),
             headers: { 'Content-Type': 'application/json' }
         });
-
+        
         if (response.ok) {
-            // location url needs to be updated
             document.location.replace('/');
         } else {
             alert(response.statusText);
