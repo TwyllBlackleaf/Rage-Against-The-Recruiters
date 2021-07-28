@@ -13,11 +13,11 @@ async function loginFormHandler(event) {
             }),
             headers: { 'Content-Type': 'application/json' }
         });
-        const data = await response.json();
-        console.log('logged in user ', data)
-        localStorage.setItem('user', JSON.stringify(data.user))
+        // const data = await response.json();
+        // localStorage.setItem('user', JSON.stringify(data.user))
         if (response.ok) {
             // replace url needs to be updated
+            // console.log('logged in user ', data)
             document.location.replace('/');
         } else {
             alert(response.statusText);

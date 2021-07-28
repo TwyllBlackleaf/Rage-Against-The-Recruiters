@@ -25,7 +25,6 @@ router.post('/', (req, res) => {
           req.session.user_id = dbUserData.id;
           req.session.username = dbUserData.username;
           req.session.email = dbUserData.email;
-        //   req.session.usertype
           req.session.loggedIn = true;
     
           res.json(dbUserData);
@@ -48,9 +47,14 @@ router.post('/login', passport.authenticate('local', {
   failureRedirect: '/login' 
 }),
 function(req, res) {
-  res.json({ user: req.user })
-  console.log('loggedin user ', req.user)
-});
+  req.session.save(() => {
+    req.session.user_id = dbUserData.id;
+    req.session.username = dbUserData.username;
+    req.session.email = dbUserData.email;
+    req.session.loggedIn = true;
+    res.json({ user: req.user })
+  })
+})
 
 router.get('/logout', (req, res) => {
   req.logout();
