@@ -69,10 +69,10 @@ router.get('/submit', async (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    JobQuestions.create({
-        questionsid_fk: req.body.questionsid_fk,
-        userid_fk: req.body.userid_fk
-    }).then(dbJobQuestionsData => res.json(dbJobQuestionsData))
+    JobDetails.create({
+        job_title: req.body.job_title,
+        job_detailsid_pk: req.body.job_detailsid_pk
+    }).then(dbJobDetailsData => res.json(dbJobDetailsData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
