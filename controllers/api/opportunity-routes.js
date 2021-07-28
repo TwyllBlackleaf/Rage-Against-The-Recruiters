@@ -57,9 +57,9 @@ router.get('/', async (req, res) => {
         )
     
 
-    //console.log(opportunities);
-    res.json({opportunities});
-   // res.render('opportunities', { opportunities })
+    console.log(opportunities);
+    //res.json({opportunities});
+    res.render('talent-user', { opportunities });
 });
 
 router.post('/submit/:id', (req, res) => {

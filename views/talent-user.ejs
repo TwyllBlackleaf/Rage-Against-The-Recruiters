@@ -22,12 +22,36 @@
             <ul>
                 <% opportunities.forEach(opportunity => { %>
                     <% const oppId = "opp" + opportunity.job_detailsid_pk; %>
-                    <li id=<% oppId %> >
-                        <h3><% opportunity.job_title %> at </h3>
+                    <li id=<%= oppId %> >
+                        <h3><%= opportunity.job_title %> at <%= opportunity.company %> </h3>
+                        <p><%= opportunity.job_description %></p>
+                        <div class="row">
+                            <div class="col-6">
+                                <p>
+                                    Classification: <%= opportunity.job_classification %> <br>
+                                    Base salary: <%= opportunity.base_salary %> <br>
+                                    Flat bonus: <%= opportunity.bonus_flat ? opportunity.bonus_flat : "None" %> <br>
+                                    Percentage bonus: <%= opportunity.bonus_percentage ? opportunity.bonus_percentage : "None" %> <br>
+                                    Retirement plan available? <%= opportunity.retirement_plan_avail ? "Yes" : "No" %> <br>
+                                    Employer matching (flat): <%= opportunity.employer_matching_flat ? opportunity.employer_matching_flat : "None" %> <br>
+                                    Employer matching (percentage): <%= opportunity.employer_matching_percentage ? opportunity.employer_matching_percentage : "None" %> <br>
+                                    Paid vacation days: <%= opportunity.paid_vacation_days %> <br>
+                                    Paid sick days: <%= opportunity.paid_sick_days %> <br>
+                                    Paid holidays: <%= opportunity.paid_holidays %> <br>
+                                    Medical coverage available? <%= opportunity.medical_coverage_avail ? "Yes" : "No" %> <br>
+                                    Family coverage available? <%= opportunity.family_coverate_avail ? "Yes" : "No" %> <br>
+                                    Employer percentage of medical coverage: <%= opportunity.medical_coverage_employer_percentage ? opportunity.medical_coverage_employer_percentage : "N/A" %> <br>
+                                    Dental coverage available? <%= opportunity.dental_coverage_avail ? "Yes" : "No" %> <br>
+                                    Vision coverage available? <%= opportunity.vision_coverage_avail ? "Yes" : "No" %> <br>
+                                    Life insurance available? <%= opportunity.life_insurance_avail ? "Yes" : "No" %> <br>
+                                    Spouse life insurance available? <%= opportunity.spouse_life_insurance_avail ? "Yes" : "No" %> <br>
 
-                        
-                        
+                                </p>
+                            </div>
+                            <div class="col-6">
 
+                            </div>
+                        </div>
                     </li>
                 <% }) %>
             </ul>
