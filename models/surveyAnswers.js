@@ -23,6 +23,11 @@ surveyAnswers.init(
             allowNull: true,
             foreignKey: true
         },
+        userid_fk: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            foreignKey: true
+        },
         answer: {
             type: DataTypes.STRING(50),
             allowNull: true
