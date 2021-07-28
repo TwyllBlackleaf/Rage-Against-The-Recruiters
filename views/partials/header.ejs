@@ -1,7 +1,7 @@
 <header>
     <nav>
-        <% if (user) { %>
-            <a href="/userPage"><%= user %></a>
+        <% if (res.locals.username) { %>
+            <a href="/userPage"><%= res.locals.username %></a>
             <button id="logoutButton">Log Out</button>
         <% } else { %>
             <a href="/login">Log In</a>
