@@ -24,13 +24,14 @@ UserInfo.belongsToMany(Questions, {
 User.belongsTo(UserInfo, {
     foreignKey: 'user_fk'
 });
+
 surveyAnswers.belongsTo(JobDetails, {
     foreignKey: 'job_detailsid_fk',
     onDelete: 'SET NULL'
 });
 Questions.belongsTo(surveyAnswers, {
     foreignKey: 'questionid_fk'
-})
+});
 AnswerTemplate.belongsTo(Answers, {
     foreignKey: 'answer_templateid_fk',
     onDelete: 'SET NULL'
