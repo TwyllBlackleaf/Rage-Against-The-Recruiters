@@ -32,22 +32,22 @@ User.belongsTo(UserInfo, {
     foreignKey: 'user_fk'
 });
 
-JobDetails.belongsTo(surveyAnswers,{
+JobDetails.hasMany(surveyAnswers,{
     foreignKey: 'job_detailsid_fk'
 })
-surveyAnswers.hasMany(JobDetails, {
+surveyAnswers.belongsTo(JobDetails, {
     foreignKey: 'job_detailsid_fk',
     onDelete: 'SET NULL'
 });
 
 
-Questions.belongsTo(surveyAnswers, {
-    foreignKey: 'questionid_fk',
-    onDelete: 'SET NULL'
-});
-surveyAnswers.hasMany(Questions,{
-    foreignKey: 'questionid_fk'
-});
+// Questions.belongsTo(surveyAnswers, {
+//     foreignKey: 'questionid_fk',
+//     onDelete: 'SET NULL'
+// });
+// surveyAnswers.hasMany(Questions,{
+//     foreignKey: 'questionid_fk'
+// });
 
 AnswerTemplate.belongsTo(Answers, {
     foreignKey: 'answer_templateid_fk',
