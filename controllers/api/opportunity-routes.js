@@ -48,7 +48,7 @@ router.get('/', async (req, res) => {
                     'answer_score'],
                     include: [
                         {
-                            model: Questions
+                            model: Questions,
                         }
                         ]
                     }
@@ -57,8 +57,8 @@ router.get('/', async (req, res) => {
         )
     
 
-    console.log(opportunities);
-    //res.json({opportunities});
+
+    // res.json({opportunities});
     res.render('talent-user', { opportunities });
 });
 

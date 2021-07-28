@@ -49,7 +49,14 @@
                                 </p>
                             </div>
                             <div class="col-6">
-
+                                <ul>
+                                    <% opportunity.surveyAnswers.forEach(question => { %>
+                                        <li>
+                                            Q: <%= question.Question.question_text %> <br>
+                                            A: <%= question.answer %>
+                                        </li>
+                                    <% }) %>
+                                </ul>
                             </div>
                         </div>
                     </li>
