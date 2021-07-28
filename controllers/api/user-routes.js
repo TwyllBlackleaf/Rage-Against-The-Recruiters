@@ -43,7 +43,10 @@ router.post('/', (req, res) => {
 //     failureMessage: false
 // }));
 
-router.post('/login', passport.authenticate('local', { failureRedirect: '/login' }),
+router.post('/login', passport.authenticate('local', { 
+  successRedirect: '/',
+  failureRedirect: '/login' 
+}),
 function(req, res) {
   res.json({ user: req.user })
   console.log('loggedin user ', req.user)
