@@ -32,7 +32,7 @@ User.belongsTo(UserInfo, {
     foreignKey: 'user_fk'
 });
 
-JobDetails.belongsToMany(surveyAnswers,{
+JobDetails.belongsTo(surveyAnswers,{
     foreignKey: 'job_detailsid_fk'
 })
 surveyAnswers.hasMany(JobDetails, {
@@ -41,7 +41,7 @@ surveyAnswers.hasMany(JobDetails, {
 });
 
 
-Questions.belongsToMany(surveyAnswers, {
+Questions.belongsTo(surveyAnswers, {
     foreignKey: 'questionid_fk',
     onDelete: 'SET NULL'
 });
@@ -49,7 +49,7 @@ surveyAnswers.hasMany(Questions,{
     foreignKey: 'questionid_fk'
 });
 
-AnswerTemplate.belongsToMany(Answers, {
+AnswerTemplate.belongsTo(Answers, {
     foreignKey: 'answer_templateid_fk',
     onDelete: 'SET NULL'
 });
@@ -57,7 +57,7 @@ Answers.hasMany(AnswerTemplate,{
     foreignKey: 'answer_templateid_fk'
 })
 
-Questions.belongsToMany(Answers, {
+Questions.belongsTo(Answers, {
     foreignKey: 'answers_fk',
     onDelete: 'SET NULL'
 });
@@ -65,7 +65,7 @@ Answers.hasMany(Questions,{
     foreignKey: 'answers_fk'
 })
 
-Questions.belongsToMany(QuestionCategories, {
+Questions.belongsTo(QuestionCategories, {
     foreignKey: 'question_category_fk',
     onDelete: 'SET NULL'
 });
@@ -73,7 +73,7 @@ QuestionCategories.hasMany(Questions, {
     foreignKey: 'question_category_fk'
 });
 
-Scorecard.belongsToMany(UserInfo, {
+Scorecard.belongsTo(UserInfo, {
     foreignKey: 'userid_fk',
     onDelete: 'SET NULL'
 });
