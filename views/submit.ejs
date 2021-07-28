@@ -14,7 +14,7 @@
                 <% categories.forEach(category => { %>
                     <% var catHref = "#catId" + category.categoryid_pk; %>
                     <li>                 
-                        <a  href=<%= catHref %> > category.category </a>
+                        <a  href=<%= catHref %> ><%= category.category %></a>
                     </li>
                 <% }); %>   
             </ul>

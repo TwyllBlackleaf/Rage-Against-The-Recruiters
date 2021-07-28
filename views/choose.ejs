@@ -25,7 +25,7 @@
         </nav>
         
         <div class="col-12 col-md-9">
-            <form>
+            <form id="choose-form">
                 <% for (i = 1; i < 8; i++) { %>
                     <% const catQuestions = categories.filter(category => category.categoryid_pk === i); %>
                     <% if (catQuestions) { %>
