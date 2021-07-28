@@ -27,6 +27,10 @@ JobDetails.init(
             type: DataTypes.STRING(20),
             allowNull: true
         },
+        company: {
+            type: DataTypes.STRING(30),
+            allowNull: true
+        },
         job_title: {
             type: DataTypes.STRING(40),
             allowNull: true
