@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head"); %>
+    <title>Document</title>
+</head>
+<body>
+
+
+    <main class="row">
+        <nav class="col-12 col-3-md">
+            <ul>
+                <% opportunities.forEach(opportunity => { %>
+                    <% const oppHref = "#opp" + opportunity.job_detailsid_pk; %>
+                    <li>
+                        <a  href=<%= oppHref %> ><%= opportunity.job_title %></a>
+                    </li>
+                <% }) %>
+            </ul>
+        </nav>
+        <div class="col-12 col-9-md">
+            <ul>
+                <% opportunities.forEach(opportunity => { %>
+                    <% const oppId = "opp" + opportunity.job_detailsid_pk; %>
+                    <li id=<% oppId %> >
+                        <h3><% opportunity.job_title %> at </h3>
+
+                        
+                        
+
+                    </li>
+                <% }) %>
+            </ul>
+        </div>
+    </main>
+
+
+    <%- include("./partials/footer"); %>
+</body>
+</html>
