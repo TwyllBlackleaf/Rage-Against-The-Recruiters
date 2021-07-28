@@ -36,27 +36,26 @@ router.get('/', async (req, res) => {
             'spouse_life_insurance_avail',
             'add_benefits_employer_percentage'
         ],
-        // include: [
-        //     {
-        //         association: Job
-        //     }
-        // ]
         include: [
             {
-                model: surveyAnswers,
-                attributes: [
-        //             'survey_answers_pk',
-                     'questionsid_fk',
-        //             'job_detailsid_fk',
-                    'answer',
-                    'answer_score'
-                ],
-
+                model: Questions,
+                include: [
+                    {
+                        model: surveyAnswers,
+                        attributes: [
+                //             'survey_answers_pk',
+                             'questionsid_fk',
+                //             'job_detailsid_fk',
+                            'answer',
+                            'answer_score'
+                        ],
+                    }
+                ]
             }
-        ]
+        ],
     })
 
-    console.log(opportunities);
+    //console.log(opportunities);
     res.json({opportunities});
    // res.render('opportunities', { opportunities })
 });

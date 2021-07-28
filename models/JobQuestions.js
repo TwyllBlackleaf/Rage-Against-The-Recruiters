@@ -11,22 +11,25 @@ JobQuestions.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true            
         },
         job_detailsid_fk: {
             type: DataTypes.INTEGER,
             allowNull: true,
-            foreignKey: true
+            foreignKey: true,
+            references: {model: 'JobDetails', key: 'job_detailsid_pk'}
         },
         questionsid_fk: {
             type: DataTypes.INTEGER,
             allowNull: true,
-            foreignKey: true
+            foreignKey: true,
+            references: {model: 'Questions', key: 'questionid_pk'}
         },
         userid_fk: {
             type: DataTypes.INTEGER,
             allowNull: true,
-            foreignKey: true
+            foreignKey: true,
+            references: {model: 'UserInfo', key: 'userid_pk'}
         }
 
     },
