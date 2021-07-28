@@ -16,7 +16,7 @@ JobDetails.belongsToMany(Questions, {
     as: 'job_detailsid_fk',
     onDelete: 'SET NULL'
 });
-Questions.hasMany(JobDetails{
+Questions.hasMany(JobDetails, {
     foreignKey: 'job_detailsid_fk' 
 })
 UserInfo.belongsToMany(Questions, {
@@ -24,7 +24,7 @@ UserInfo.belongsToMany(Questions, {
     as: 'userid_fk',
     onDelete: 'SET NULL'
 });
-Questions.hasMany(UserInfo {
+Questions.hasMany(UserInfo, {
     foreignKey: 'userid_fk' 
 })
 
