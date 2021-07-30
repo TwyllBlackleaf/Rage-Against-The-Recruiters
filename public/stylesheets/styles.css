@@ -1,0 +1,18 @@
+/* Utility */
+:root {
+  --color: #e7e5df;
+  --third-color: #e7bb41;
+  --primary-color: #44bba4;
+  --secondary-color: #d36135;
+  --tertiary-color: #1b2021;
+}
+
+.hide {
+  display: none;
+}
+
+/*navigation bar*/
+
+body {
+  background: #e7e5df;
+}
