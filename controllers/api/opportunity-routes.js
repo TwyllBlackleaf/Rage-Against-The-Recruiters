@@ -46,16 +46,16 @@ router.get('/', async (req, res) => {
                     //             'job_detailsid_fk',
                     'answer',
                     'answer_score'],
-                    include: [
-                        {
-                            model: Questions,
-                        }
-                        ]
+                include: [
+                    {
+                        model: Questions,
                     }
                 ]
             }
-        )
-    
+        ]
+    }
+    )
+
 
 
     // res.json({opportunities});
