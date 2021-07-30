@@ -24,17 +24,17 @@ INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(3,3,1.00);
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',0,0);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(4,3,0.40);
-INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(2,3,'boolean',0,'Is there a retirement plan?',10.00,1);
+INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(2,3,'boolean',0,'Is there a retirement plan?',10.00,2);
 -- Question 4: What amount of employer funding match? (benefits)
 INSERT INTO answertemplate(answer_type,is_deal_breaker) VALUES('decimal',0);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(5,4,1.00);
-INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(2,4,'decimal',0,'What amount of employer matching funds for retirement?',10.00,1);
+INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(2,4,'decimal',0,'What amount of employer matching funds for retirement?',10.00,3);
 -- Question 5: Is there medical coverage? (benefits/dealbreaker)
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',0,1);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(6,5,1.00);
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',1,0);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(7,5,0.30);
-INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(2,6,'boolean',1,'Do you provide medical insurance?',10.00,1);
+INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(2,6,'boolean',1,'Do you provide medical insurance?',10.00,4);
 -- Question 6: Is there family medical coverage? (benefits/dealbreaker)
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',0,1);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(8,6,1.00);
@@ -46,13 +46,13 @@ INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(10,7,1.00);
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',0, 0);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(11,7,0.6);
-INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(4,10,'boolean',1,'Vision coverage provided?',5.50,1);
+INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(4,10,'boolean',1,'Vision coverage provided?',7.50,2);
 -- Question 8: Is there dental coverage? (Perks)
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',0, 1);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(12,8,1.00);
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',0, 0);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(13,8,0.6);
-INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(4,12,'boolean',0,'Dental coverage provided?',7.50,1);
+INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(4,12,'boolean',0,'Dental coverage provided?',5.50,3);
 -- Question 9: Paid vacation days? (Workplace Environment/Dealbreaker)
 INSERT INTO answertemplate(answer_type,is_deal_breaker,answer_integer_max,answer_integer_min) VALUES('integer',1,100,5);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(14,9,1.00);
@@ -60,23 +60,23 @@ INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_brea
 -- Question 10: Paid sick days? (Workplace Environment)
 INSERT INTO answertemplate(answer_type,is_deal_breaker,answer_integer_max,answer_integer_min) VALUES('integer',0,100,3);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(15,10,1.00);
-INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(3,15,'integer',0,'Paid sick days per year?',10.00,1);
+INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(3,15,'integer',0,'Paid sick days per year?',10.00,2);
 -- Question 11: Paid holidays/personal days? (Workplace Environment)
 INSERT INTO answertemplate(answer_type,is_deal_breaker,answer_integer_max,answer_integer_min) VALUES('integer',0,100,2);
-INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(16,10,1.00);
-INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(3,16,'integer',0,'Paid holiday/personal days per year?',10.00,1);
+INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(16,11,1.00);
+INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(3,16,'integer',0,'Paid holiday/personal days per year?',10.00,3);
 -- Question 12: Is there life insurance coverage? (Perks)
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',0, 1);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(17,12,1.00);
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',0, 0);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(18,12,0.6);
-INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(4,17,'boolean',0,'Is there life insurance provided?',7.50,1);
+INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(4,17,'boolean',0,'Is there life insurance provided?',7.50,4);
 -- Question 13: Is there spouse/partner life insurance coverage? (Perks)
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',0, 1);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(19,13,1.00);
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',0, 0);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(20,13,0.6);
-INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(4,19,'boolean',0,'Is there spouse or partner life insurance available?',7.50,1);
+INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(4,19,'boolean',0,'Is there spouse or partner life insurance available?',7.50,5);
 -- Question 14: Within how many miles is this position from my location? (Location/Dealbreaker)
 INSERT INTO answertemplate(answer_type,is_deal_breaker,answer_integer_max,answer_integer_min) VALUES('integer',1,50,0);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(21,14,1.00);
@@ -96,7 +96,7 @@ INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(25,17,1.00);
 INSERT INTO answertemplate(answer_type,is_deal_breaker, answer_boolean) VALUES('boolean',0, 1);
 INSERT INTO answers(answer_templateid_fk,answer_questionid_fk,answer_score_modifier) VALUES(26,17,0.6);
-INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(7,25,'boolean',0,'Does your company sponser visa applicants?',7.50,1);
+INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_breaker,question_text,question_base_score,sort_order) VALUES(7,25,'boolean',0,'Does your company sponser visa applicants?',7.50,2);
 
 /* User Info */
 -- Developer User 1 - Donna Developer
@@ -107,7 +107,7 @@ INSERT INTO questions(question_category_fk,answers_fk,question_type,is_deal_brea
  verified,want1,want2,
  want3,avoid1,avoid2,avoid3) VALUES
  ('Developer','Donna','Developer',
- 'donna@codemonkey.com','212-555-1234','New York City',
+ 'donnadev@mail.com','212-555-1234','New York City',
  'www.codemonkey.com','CodeMonkey','donnaD@facebook',
  '@donnaDevMonkey','donnaDev@linkedin.com',1,
  0,'Corner Office','Pet Friendly',
