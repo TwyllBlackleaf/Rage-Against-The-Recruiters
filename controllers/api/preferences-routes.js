@@ -16,7 +16,8 @@ router.get('/', async (req, res) => {
                 attributes: [
                     'questionid_pk',
                     'question_type',
-                    'question_text'
+                    'question_text',
+                    'is_deal_breaker'
                 ]
             }
         ]
