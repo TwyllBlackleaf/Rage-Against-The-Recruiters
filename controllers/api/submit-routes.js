@@ -1,20 +1,5 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
-
-router.get('/signup', (req, res) => {
-    res.locals.username = req.session.username;
-    res.render('signup', { user: req.user });
-})
-
-router.get('/login', (req, res) => {
-    res.locals.username = req.session.username;
-    res.render('login', { user: req.user });
-})
-
-router.get('/', (req, res) => {
-    res.locals.username = req.session.username;
-    res.render('index', { user: req.user });
-})
+const { User, JobDetails, surveyAnswers, Questions, JobQuestions, Answers, AnswerTemplate } = require('../../models');
 
 router.get('/', async (req, res) => {
     const opportunities = await JobDetails.findAll({
@@ -55,20 +40,28 @@ router.get('/', async (req, res) => {
                     //             'job_detailsid_fk',
                     'answer',
                     'answer_score'],
-                include: [
-                    {
-                        model: Questions,
+                    include: [
+                        {
+                            model: Questions
+                        }
+                        ]
                     }
                 ]
             }
-        ]
-    }
-    )
+        )
+    
 
-
-
-    // res.json({opportunities});
-    res.render('talent-user', { opportunities });
+    //console.log(opportunities);
+    res.json({opportunities});
+   // res.render('opportunities', { opportunities })
 });
+
+router.post('/submit/:id', (req, res) => {
+    res.locals.username = req.session.username;
+    User.create({
+    });
+});
+
+
 
 module.exports = router;

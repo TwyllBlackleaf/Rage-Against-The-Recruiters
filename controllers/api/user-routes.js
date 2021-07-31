@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
       });
   });  
 
+// create an account
 router.post('/', (req, res) => {
     User.create({
       username: req.body.username,
@@ -25,11 +26,21 @@ router.post('/', (req, res) => {
           req.session.user_id = dbUserData.id;
           req.session.username = dbUserData.username;
           req.session.email = dbUserData.email;
-        //   req.session.usertype
           req.session.loggedIn = true;
     
-          res.json(dbUserData);
+          // res.json(dbUserData);
         });
+        let user = {
+          email: req.body.email,
+          username: req.body.username,
+          password: dbUserData.password
+        }
+        req.login(user, function(err) {
+          if (err) {
+            return next(err);
+          }
+          res.redirect('/');
+        })
       })
       .catch(err => {
         console.log(err);
@@ -37,28 +48,26 @@ router.post('/', (req, res) => {
       });
   });  
 
-// router.post('/login', passport.authenticate('local', {
-//     successRedirect: '/',
-//     failureRedirect: '/login',
-//     failureMessage: false
-// }));
-
-router.post('/login', passport.authenticate('local', { failureRedirect: '/login' }),
+// login
+router.post('/login', passport.authenticate('local', { 
+  failureRedirect: '/login' 
+}),
 function(req, res) {
-  res.json({ user: req.user })
-  console.log('loggedin user ', req.user)
+  // res.json({ user: req.user })
+  res.redirect('/');
 });
 
-router.get('/logout', (req, res) => {
+// logout
+router.post('/logout', (req, res) => {
   req.logout();
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  }
-  else {
-    res.status(404).end();
-  }
+  // if (req.session.loggedIn) {
+  //   req.session.destroy(() => {
+  //     res.status(204).end();
+  //   });
+  // }
+  // else {
+  //   res.status(404).end();
+  // }
   res.redirect('/');
 });
 

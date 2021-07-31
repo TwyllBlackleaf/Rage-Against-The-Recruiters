@@ -2,7 +2,10 @@ const router = require('express').Router();
 const { Questions, QuestionCategories, JobQuestions } = require('../../models');
 
 router.get('/', async (req, res) => {
+    res.locals.username = req.session.username;
     const categories = await QuestionCategories.findAll({
+        nest: true,
+        raw: true,
         attributes: [
             "categoryid_pk",
             "category"
@@ -19,6 +22,8 @@ router.get('/', async (req, res) => {
         ]
     })
 
+    console.log(categories);
+
     res.render('choose', { categories })
 });
 
@@ -31,6 +36,9 @@ router.post('/', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
+    res.locals.username = req.session.username;
+    //     Post.create({
+    //     });
 });
 
 

@@ -1,11 +1,20 @@
 <header>
     <nav>
         <% if (user) { %>
-            <a href="/userPage"><%= user %></a>
-            <button id="logoutButton">Log Out</button>
-        <% } else { %>
+            <a href="/userPage"><%= user.username %></a>  
+        <% } %>
+        
+        <div id="logout-container">
+            <% if (user) { %>
+                <button id="logoutButton">Log Out</button>
+                <% } %>
+        </div>
+
+        <% if (!user) { %>
             <a href="/login">Log In</a>
         <% } %>
+
+        
     </nav>
 </header>
 

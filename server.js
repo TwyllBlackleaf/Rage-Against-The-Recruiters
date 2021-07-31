@@ -10,18 +10,7 @@ const PORT = process.env.PORT || 3001;
 
 const sequelize = require("./config/connection");
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
-require('./utils/auth')();
-
-
 const sess = {
     secret: 'Super secret secret',
     cookie: {},
@@ -31,6 +20,16 @@ const sess = {
         db: sequelize
     })
 };
+
+require('./utils/auth')();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session(sess));
 
@@ -42,12 +41,10 @@ app.use(function (req, res, next) {
     next();
 });
 
-
 app.use(passport.initialize());
 app.use(passport.authenticate('session'));
 
 app.use(require('./controllers/'));
-
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
