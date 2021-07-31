@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, JobDetails, surveyAnswers, Questions, JobQuestions } = require('../../models');
+const { User, JobDetails, surveyAnswers, Questions, JobQuestions } = require('../models');
 
 router.get('/submit/:id', (req, res) => {
     res.locals.username = req.session.username;
@@ -53,13 +53,16 @@ router.get('/', async (req, res) => {
                 ]
             }
         ]
-    }
-    )
+    })
 
 
 
-    // res.json({opportunities});
-    res.render('talent-user', { opportunities });
+
+    res.json({ opportunities });
+    //     res.json({ opportunities });
+    // });
+
+    // res.render('talent-user', { opportunities });
 });
 
 router.post('/submit/:id', (req, res) => {
