@@ -370,3 +370,16 @@ a {
   width: 50%;
   padding: 10px;
 }
+
+/* Create an Opportunity */
+
+.submitbutton {
+  border-radius: 30px;
+  border: 1px solid #44bba4;
+  background-color: #44bba4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100%;
+  padding: 1rem;
+  transition: all ease 0.4s;
+}
