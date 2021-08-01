@@ -17,8 +17,7 @@ router.get('/submit', (req, res) => {
 })
 
 router.get('/', (req, res) => {
-    res.locals.username = req.session.username;
-    res.render('index', { user: req.user });
+    res.sendFile(path.join(__dirname, "../public/index.html"), { user: req.user });
 })
 
 

@@ -9,6 +9,15 @@ function clearCategory() {
     document.querySelector("#category-7").hidden = true;
 }
 
+// function checkDealbreaker(questionId) {
+//     fetch("/api/opportunity", {
+//         method: "GET",
+//         headers: {
+//             "Content-Type": "application/json"
+//         }
+//     })
+// }
+
 function renderQuestionLi(question) {
     const questionLiEl = document.createElement("li");
     const questionFormEl = document.createElement("form");
