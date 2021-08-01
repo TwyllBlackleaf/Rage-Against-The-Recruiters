@@ -1,8 +1,15 @@
-
+console.log("Hello, World!");
 
 function renderQuestionLi(question) {
     const questionLiEl = document.createElement("li");
     const questionFormEl = document.createElement("form");
+    const submitButtonEl = document.createElement("button");
+
+    submitButtonEl.setAttribute("type", "submit");
+    submitButtonEl.textContent = "Submit";
+    submitButtonEl.setAttribute("name", "questionid_pk");
+    submitButtonEl.setAttribute("value", question.Questions.questionid_pk);
+
 
     switch (question.Questions.question_type) {
         case "decimal":
@@ -14,13 +21,7 @@ function renderQuestionLi(question) {
             const numberInputEl = document.createElement("input");
             numberInputEl.setAttribute("type", "number");
             numberInputEl.setAttribute("id", question.Questions.questionid_pk);
-
-            const submitButtonEl = document.createElement("button");
-            submitButtonEl.setAttribute("type", "submit");
-            submitButtonEl.textContent = "Submit";
-            submitButtonEl.setAttribute("name", "questionid_pk");
-            submitButtonEl.setAttribute("value", question.Questions.questionid_pk);
-
+      
             questionFormEl.appendChild(questionTextEl);
             questionFormEl.appendChild(numberInputEl);
             questionFormEl.appendChild(submitButtonEl);
@@ -42,12 +43,6 @@ function renderQuestionLi(question) {
             const radioQuestionEl = document.createElement("p");
             radioQuestionEl.textContent = question.Questions.question_text;
 
-            const submitButtonEl = document.createElement("button");
-            submitButtonEl.setAttribute("type", "submit");
-            submitButtonEl.textContent = "Submit";
-            submitButtonEl.setAttribute("name", "questionid_pk");
-            submitButtonEl.setAttribute("value", question.Questions.questionid_pk);
-
             radioDivEl.appendChild(radioYesEl);
             radioDivEl.appendChild(radioNoEl);
 
@@ -59,10 +54,8 @@ function renderQuestionLi(question) {
     }
 }
 
-async function renderDealbreakers(event) {
-    event.preventDefault();
-
-    data = await fetch("api/preferences", {
+async function renderDealbreakers() {
+    data = await fetch("/api/preferences", {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -85,7 +78,7 @@ async function renderDealbreakers(event) {
 async function renderCategories(event) {
     event.preventDefault();
 
-    data = await fetch("api/preferences", {
+    data = await fetch("/api/preferences", {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -98,10 +91,12 @@ async function fillOutAnswers(event) {
     event.preventDefault();
 
     data = await fetch("", {
-        
+
     });
 }
 
 async function submitAnswer(event) {
     event.preventDefault();
 }
+
+renderDealbreakers();
