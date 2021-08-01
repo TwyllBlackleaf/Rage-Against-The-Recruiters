@@ -4,8 +4,8 @@ const { Questions, QuestionCategories, JobQuestions } = require('../../models');
 router.get('/', async (req, res) => {
     res.locals.username = req.session.username;
     const categories = await QuestionCategories.findAll({
-        nest: true,
-        raw: true,
+        // nest: true,
+        // raw: true,
         attributes: [
             "categoryid_pk",
             "category"
@@ -16,13 +16,12 @@ router.get('/', async (req, res) => {
                 attributes: [
                     'questionid_pk',
                     'question_type',
-                    'question_text'
+                    'question_text',
+                    'is_deal_breaker'
                 ]
             }
         ]
     })
-
-    console.log(categories);
 
     res.json({ categories })
 });
