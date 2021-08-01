@@ -23,8 +23,6 @@ router.get('/', async (req, res) => {
         ]
     })
 
-    console.log(categories);
-
     res.json({ categories })
 });
 // res.render('choose', { categories })
