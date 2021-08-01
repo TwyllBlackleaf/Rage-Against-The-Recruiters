@@ -116,7 +116,7 @@ router.post('/:id', (req, res) => {
 });
 
 // update surveyAnswers
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
     // update Answer data
     surveyAnswers.update(
         {
