@@ -1,12 +1,12 @@
 function clearCategory() {
     document.querySelector("#dealbreaker-category").hidden = true;
-    document.querySelector("#compensation-category").hidden = true;
-    document.querySelector("#benefits-category").hidden = true;
-    document.querySelector("#workplace-category").hidden = true;
-    document.querySelector("#perks-category").hidden = true;
-    document.querySelector("#location-category").hidden = true;
-    document.querySelector("#travel-category").hidden = true;
-    document.querySelector("#citizenship-category").hidden = true;
+    document.querySelector("#category-1").hidden = true;
+    document.querySelector("#category-2").hidden = true;
+    document.querySelector("#category-3").hidden = true;
+    document.querySelector("#category-4").hidden = true;
+    document.querySelector("#category-5").hidden = true;
+    document.querySelector("#category-6").hidden = true;
+    document.querySelector("#category-7").hidden = true;
 }
 
 function renderQuestionLi(question) {
@@ -76,7 +76,7 @@ function renderQuestionLi(question) {
     return questionLiEl;
 }
 
-function renderDealbreakers() {
+function renderDealbreakers(event) {
     clearCategory();
     document.querySelector("#dealbreaker-category").hidden = false;
 
@@ -111,16 +111,58 @@ function renderDealbreakers() {
 }
 
 
-// async function renderCategories(event) {
-//     event.preventDefault();
+function renderCategories(event) {
+    clearCategory();
 
-//     data = await fetch("/api/preferences", {
-//         method: "GET",
-//         headers: {
-//             "Content-Type": "application/json"
-//         }
-//     });
-// }
+    var catId;
+    
+    if (event.target.matches("#compensation-button")) {
+        document.querySelector("#category-1").hidden = false;
+        catId = 1;
+    } else if (event.target.matches("#benefits-button")) {
+        document.querySelector("#category-2").hidden = false;
+        catId = 2;
+    } else if (event.target.matches("#workplace-button")) {
+        document.querySelector("#category-3").hidden = false;
+        catId = 3;
+    } else if (event.target.matches("#perks-button")) {
+        document.querySelector("#category-4").hidden = false;
+        catId = 4;
+    } else if (event.target.matches("#location-button")) {
+        document.querySelector("#category-5").hidden = false;
+        catId = 5;
+    } else if (event.target.matches("#travel-button")) {
+        document.querySelector("#category-6").hidden = false;
+        catId = 6;
+    } else if (event.target.matches("#citizenship-button")) {
+        document.querySelector("#category-7").hidden = false;
+        catId = 7;
+    } 
+
+
+    fetch("/api/preferences", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(response => {
+        response.json().then(data => {
+            document.querySelector(`#category-${catId}`).innerHTML = "";
+
+            data.categories.forEach(category => {
+                if (category.categoryid_pk === catId) {
+                    category.Questions.forEach(question => {
+                        const questionLi = renderQuestionLi(question);
+                        
+                        document.querySelector(`#category-${catId}`).appendChild(questionLi);
+                    });
+                }
+            });
+        })
+    }).catch(err => {
+        console.log(err);
+    });
+}
 
 
 // async function fillOutAnswers(event) {
@@ -134,5 +176,15 @@ function renderDealbreakers() {
 async function submitAnswer(event) {
     event.preventDefault();
 }
+
+
+document.querySelector("#dealbreaker-button").addEventListener("click", renderDealbreakers);
+document.querySelector("#compensation-button").addEventListener("click", renderCategories);
+document.querySelector("#benefits-button").addEventListener("click", renderCategories);
+document.querySelector("#workplace-button").addEventListener("click", renderCategories);
+document.querySelector("#perks-button").addEventListener("click", renderCategories);
+document.querySelector("#location-button").addEventListener("click", renderCategories);
+document.querySelector("#travel-button").addEventListener("click", renderCategories);
+document.querySelector("#citizenship-button").addEventListener("click", renderCategories);
 
 renderDealbreakers();
