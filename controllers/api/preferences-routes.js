@@ -25,8 +25,10 @@ router.get('/', async (req, res) => {
 
     console.log(categories);
 
-    res.render('choose', { categories })
+    res.json({ categories })
 });
+// res.render('choose', { categories })
+// });
 
 router.post('/', (req, res) => {
     JobQuestions.create({
