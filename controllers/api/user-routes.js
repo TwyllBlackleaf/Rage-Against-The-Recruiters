@@ -53,22 +53,23 @@ router.post('/login', passport.authenticate('local', {
   failureRedirect: '/login' 
 }),
 function(req, res) {
-  // res.json({ user: req.user })
-  res.redirect('/');
+  res.json({ user: req.user })
+  // res.redirect('/');
+
 });
 
 // logout
 router.post('/logout', (req, res) => {
   req.logout();
-  // if (req.session.loggedIn) {
-  //   req.session.destroy(() => {
-  //     res.status(204).end();
-  //   });
-  // }
-  // else {
-  //   res.status(404).end();
-  // }
-  res.redirect('/');
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
+  else {
+    res.status(404).end();
+  }
+  // res.redirect('/');
 });
 
 module.exports = router;
