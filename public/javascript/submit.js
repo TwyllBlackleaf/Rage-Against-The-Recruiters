@@ -1,3 +1,14 @@
+function clearCategory() {
+    document.querySelector("#dealbreaker-category").hidden = true;
+    document.querySelector("#compensation-category").hidden = true;
+    document.querySelector("#benefits-category").hidden = true;
+    document.querySelector("#workplace-category").hidden = true;
+    document.querySelector("#perks-category").hidden = true;
+    document.querySelector("#location-category").hidden = true;
+    document.querySelector("#travel-category").hidden = true;
+    document.querySelector("#citizenship-category").hidden = true;
+}
+
 function renderQuestionLi(question) {
     const questionLiEl = document.createElement("li");
     const questionFormEl = document.createElement("form");
@@ -66,6 +77,9 @@ function renderQuestionLi(question) {
 }
 
 function renderDealbreakers() {
+    clearCategory();
+    document.querySelector("#dealbreaker-category").hidden = false;
+
     fetch("/api/preferences", {
         method: "GET",
         headers: {
@@ -91,46 +105,11 @@ function renderDealbreakers() {
                 
             });
         })
-    })
-    // .then(categories => {
-    //     console.log(categories);
-
-    //     document.querySelector("#dealbreaker-category").innerHTML = "";
-
-    //     categories.forEach( (question) => {
-    //         if (question.Questions.is_deal_breaker) {
-    //             const questionLi = renderQuestionLi(question);
-                
-    //             document.querySelector("#dealbreaker-category").appendChild(questionLi);
-    //         }
-    //     });
-    // })
-    
-    .catch(err => {
+    }).catch(err => {
         console.log(err);
-    })
+    });
 }
 
-// async function renderDealbreakers() {
-//     data = await fetch("/api/preferences", {
-//         method: "GET",
-//         headers: {
-//             "Content-Type": "application/json"
-//         }
-//     });
-
-//     if (data.ok) {
-//         document.querySelector("#dealbreaker-category").innerHTML = "";
-
-//         data.forEach( (question) => {
-//             if (question.Questions.is_deal_breaker) {
-//                 const questionLi = renderQuestionLi(question);
-                
-//                 document.querySelector("#dealbreaker-category").appendChild(questionLi);
-//             }
-//         });
-//     }
-// }
 
 // async function renderCategories(event) {
 //     event.preventDefault();
