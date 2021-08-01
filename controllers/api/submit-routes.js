@@ -40,20 +40,20 @@ router.get('/', async (req, res) => {
                     //             'job_detailsid_fk',
                     'answer',
                     'answer_score'],
-                    include: [
-                        {
-                            model: Questions
-                        }
-                        ]
+                include: [
+                    {
+                        model: Questions
                     }
                 ]
             }
-        )
-    
+        ]
+    }
+    )
+
 
     //console.log(opportunities);
-    res.json({opportunities});
-   // res.render('opportunities', { opportunities })
+    res.json({ opportunities });
+    // res.render('opportunities', { opportunities })
 });
 
 router.post('/submit/:id', (req, res) => {

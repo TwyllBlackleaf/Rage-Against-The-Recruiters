@@ -65,7 +65,10 @@ router.get('/submit', async (req, res) => {
         ]
     })
 
-    res.render('submit', { talent })
+    res.json({ talent })
+    // });
+
+    // res.render('submit', { talent })
 });
 
 router.post('/', (req, res) => {
