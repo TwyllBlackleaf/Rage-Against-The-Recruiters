@@ -196,4 +196,7 @@ document.querySelector("#location-button").addEventListener("click", renderCateg
 document.querySelector("#travel-button").addEventListener("click", renderCategories);
 document.querySelector("#citizenship-button").addEventListener("click", renderCategories);
 
+if (user) {
+    console.log(user);
+}
 renderDealbreakers();
