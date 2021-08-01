@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../public/stylesheets/styles.css" />
   </head>
 
+  <body>
   <ul class="menu" data-responsive-menu="accordion" id="navigation-bar">
     <li class="menu-text">RATR</li>
     <li><a href="mainpage.html">About Us</a></li>
@@ -17,28 +18,33 @@
     <li><a href="signup.html">Sign Up</a></li>
   </ul>
 
-  <form class="sign-up">
-    <div class="sign-up-form">
+  <form class="signup-form">
+    <div class="signup-form">
       <h4 class="primary-border center">Sign up</h4>
       <label for="sign-in-form-email">Email:</label>
       <input
         type="text"
-        class="sign-in-form-username"
-        id="sign-in-form-username"
+        class="email-signup"
+        id="sign-in-form-email"
       />
       <label for="sign-up-form-username">Username:</label>
       <input
         type="text"
-        class="sign-up-form-username"
+        class="username-signup"
         id="sign-in-form-username"
       />
       <label for="sign-up-form-password">Password:</label>
       <input
         type="text"
-        class="sign-in-form-password"
+        class="password-signup"
         id="sign-in-form-password"
       />
       <button type="submit" class="sign-up-form-button">Sign Up!</button>
     </div>
   </form>
+  
+  <script src="public\javascript\signup.js"></script>
+  <script src="public\javascript\logout.js"></script>
+</body>
+
 </html>
