@@ -9,6 +9,15 @@ function clearCategory() {
     document.querySelector("#category-7").hidden = true;
 }
 
+// function checkDealbreaker(questionId) {
+//     fetch("/api/opportunity", {
+//         method: "GET",
+//         headers: {
+//             "Content-Type": "application/json"
+//         }
+//     })
+// }
+
 function renderQuestionLi(question) {
     const questionLiEl = document.createElement("li");
     const questionFormEl = document.createElement("form");
@@ -187,4 +196,7 @@ document.querySelector("#location-button").addEventListener("click", renderCateg
 document.querySelector("#travel-button").addEventListener("click", renderCategories);
 document.querySelector("#citizenship-button").addEventListener("click", renderCategories);
 
+if (user) {
+    console.log(user);
+}
 renderDealbreakers();
