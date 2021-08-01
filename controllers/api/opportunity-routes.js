@@ -1,10 +1,12 @@
 const router = require('express').Router();
 const { User, JobDetails, surveyAnswers, Questions, JobQuestions } = require('../../models');
 
-router.get('/submit/:id', (req, res) => {
-    res.locals.username = req.session.username;
-    User.findOne({
-    });
+router.get('/recruiter', (req, res) => {
+    // the ID of the recruiter will be passed in through the body of the request so you can use a WHERE clause with it
+});
+
+router.get('/:id', (req, res) => {
+    // id refers to the id of the post
 });
 
 router.get('/', async (req, res) => {
@@ -46,20 +48,23 @@ router.get('/', async (req, res) => {
                     //             'job_detailsid_fk',
                     'answer',
                     'answer_score'],
-                    include: [
-                        {
-                            model: Questions,
-                        }
-                        ]
+                include: [
+                    {
+                        model: Questions,
                     }
                 ]
             }
-        )
-    
+        ]
+    })
 
 
-    // res.json({opportunities});
-    res.render('talent-user', { opportunities });
+
+
+    res.json({ opportunities });
+    //     res.json({ opportunities });
+    // });
+
+    // res.render('talent-user', { opportunities });
 });
 
 router.post('/submit/:id', (req, res) => {
