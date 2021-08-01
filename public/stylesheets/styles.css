@@ -12,10 +12,27 @@ body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
+a {
+  color: inherit;
+}
+
 .section-title {
   font-size: 48px;
   color: var(--third-color);
   border-bottom: 3px solid;
+  padding-bottom: 20px;
+  text-align: center;
+  margin: 0 auto 35px auto;
+  width: 50%;
+}
+
+.secondary-title {
+  color: #44bba4;
+}
+
+.third-title {
+  font-size: 35px;
+  color: var(--primary-color);
   padding-bottom: 20px;
   text-align: center;
   margin: 0 auto 35px auto;
@@ -314,4 +331,8 @@ body {
   -ms-grid-column: 1;
   grid-column-start: 1;
   grid-column-end: 4;
+}
+
+.holy-grail li a {
+  color: #1b2021;
 }
