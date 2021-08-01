@@ -1,18 +1,317 @@
 /* Utility */
 :root {
-  --color: #e7e5df;
+  --color: white;
   --third-color: #e7bb41;
   --primary-color: #44bba4;
   --secondary-color: #d36135;
   --tertiary-color: #1b2021;
 }
 
-.hide {
-  display: none;
+body {
+  background: white;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.section-title {
+  font-size: 48px;
+  color: var(--third-color);
+  border-bottom: 3px solid;
+  padding-bottom: 20px;
+  text-align: center;
+  margin: 0 auto 35px auto;
+  width: 50%;
+}
+
+.primary-border {
+  border-color: var(--tertiary-color);
+}
+
+.secondary-border {
+  border-color: var(--tertiary-color);
 }
 
 /*navigation bar*/
+.menu-text {
+  color: #44bba4;
+}
 
-body {
-  background: #e7e5df;
+.menu a {
+  color: var(--secondary-color);
+}
+
+/* Hero Section */
+
+.hero-section {
+  background: url(./images/Collaboration\ 1200x470.png) 50% no-repeat;
+  background-size: cover;
+  height: 60vh;
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+/*Benefits */
+
+.benefits {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.benefit {
+  margin: 20px;
+  background: var(--primary-color);
+  color: white;
+  flex: 1;
+}
+
+.benefit-description {
+  padding: 25px;
+  line-height: 1.3;
+}
+
+.benefit-description h3 {
+  font-size: 28px;
+}
+
+.benefit-description p {
+  font-size: 17px;
+}
+
+/*login form */
+.sign-in {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.sign-in-form {
+  width: 400px;
+  height: 70%;
+  border: 15px;
+  padding: 50px;
+  margin: 20px;
+  background-color: #d36135;
+}
+
+.sign-in-form h4 {
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.sign-in-form label {
+  text-transform: uppercase;
+  color: #1b2021;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.sign-in-form input {
+  color: black;
+}
+
+.sign-in-form input:focus {
+  opacity: 0.8;
+}
+
+.sign-in-form-username,
+.sign-in-form-password {
+  border-radius: 30px;
+  border: none;
+  opacity: 0.1;
+  transition: all ease 0.4s;
+}
+
+.sign-in-form-button {
+  border-radius: 30px;
+  border: 1px solid #44bba4;
+  color: #fff;
+  background-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100%;
+  padding: 1rem;
+  transition: all ease 0.4s;
+}
+
+.sign-in-form-button:hover {
+  background-color: #44bba4;
+  border-color: #44bba4;
+}
+
+/*Sign Up */
+
+.floated-label-wrapper {
+  position: relative;
+}
+
+.floated-label-wrapper label {
+  background-color: #44bba4;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  left: 0.75rem;
+  opacity: 0;
+  padding: 0 0.25rem;
+  position: absolute;
+  top: 2rem;
+  transition: all 0.15s ease-in;
+  z-index: -1;
+}
+
+.floated-label-wrapper label input[type="text"],
+.floated-label-wrapper label input[type="email"],
+.floated-label-wrapper label input[type="password"] {
+  border-radius: 4px;
+  font-size: 1.75em;
+  padding: 0.5em;
+}
+
+.floated-label-wrapper label.show {
+  opacity: 1;
+  top: -0.85rem;
+  z-index: 1;
+  transition: all 0.15s ease-in;
+}
+
+/* Sign Up */
+.sign-up {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.sign-up-form {
+  width: 400px;
+  height: 70%;
+  border: 15px;
+  padding: 50px;
+  margin: 20px;
+  background-color: #44bba4;
+}
+
+.sign-up-form h4 {
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.sign-up-form input {
+  color: black;
+  background-color: white;
+}
+.sign-up-form input:focus {
+  opacity: 0.5;
+}
+
+.sign-up-form-username,
+.sign-up-form-password .sign-up-form-email {
+  border-radius: 30px;
+  border: none;
+  opacity: 0.1;
+  transition: all ease 0.4s;
+}
+
+.sign-up-form-button {
+  border-radius: 30px;
+  border: 1px solid #44bba4;
+  color: #fff;
+  background-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100%;
+  padding: 1rem;
+  transition: all ease 0.4s;
+}
+
+.sign-in-form-button:hover {
+  background-color: white;
+  border-color: white;
+}
+
+/* Recruiter Dashboard */
+
+.holy-grail-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
+  -ms-grid-rows: 1fr 8fr 1fr;
+  grid-template-rows: 1fr 8fr 1fr;
+  grid-gap: 20px;
+  height: 100vh;
+}
+
+@media screen and (max-width: 60em) {
+  .holy-grail-grid {
+    -ms-grid-rows: 2fr 1fr 5fr 1fr;
+    grid-template-rows: 2fr 1fr 5fr 1fr;
+  }
+}
+
+.holy-grail-header,
+.holy-grail-left,
+.holy-grail-middle,
+.holy-grail-right,
+.holy-grail-footer {
+  padding: 1rem;
+  border: 1px solid #ededed;
+  background-color: #ededed;
+}
+
+.holy-grail-header {
+  -ms-grid-column: 1;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  -ms-grid-row: 1;
+  grid-row-start: 1;
+}
+
+@media screen and (max-width: 60em) {
+  .holy-grail-left {
+    -ms-grid-row: 2;
+    grid-row-start: 2;
+    -ms-grid-column: 1;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+}
+
+@media screen and (max-width: 60em) {
+  .holy-grail-middle {
+    -ms-grid-row: 3;
+    grid-row-start: 3;
+    -ms-grid-column: 1;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+}
+
+@media screen and (max-width: 60em) {
+  .right-nav {
+    -ms-grid-row: 4;
+    grid-row-start: 4;
+    -ms-grid-column: 1;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+}
+
+.holy-grail-footer {
+  -ms-grid-column: 1;
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
