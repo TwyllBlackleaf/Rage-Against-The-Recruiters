@@ -22,11 +22,11 @@ Questions.belongsToMany(JobDetails, {
     foreignKey: 'questionsid_fk' 
 });
 
-    // JobDetails.hasMany(JobQuestions, {foreignKey: 'job_questionsid_fk', sourceKey: 'job_questionsid_pk'});
-    // JobQuestions.belongsTo(JobDetails, {foreignKey: 'job_detailsid_fk', targetKey: 'job_detailsid_pk'});
+    // JobDetails.hasMany(JobQuestions, {foreignKey: 'job_questionsid_fk'});
+    // JobQuestions.hasOne(JobDetails, {foreignKey: 'job_detailsid_fk'});
 
-    // Questions.belongsTo(JobQuestions, {foreignKey: 'job_questionsid_fk', sourceKey: 'job_questionsid_pk'});
-    // JobQuestions.hasMany(Questions, {foreignKey: 'job_detailsid_fk', targetKey: 'job_detailsid_pk'});
+    // Questions.hasOne(JobQuestions, {foreignKey: 'job_questionsid_fk'});
+    // JobQuestions.hasMany(Questions, {foreignKey: 'job_detailsid_fk'});
 
 
 UserInfo.belongsToMany(Questions, {

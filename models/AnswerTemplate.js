@@ -28,17 +28,15 @@ AnswerTemplate.init(
         },
         answer_integer_max: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            defaultValue: 1000000
+            allowNull: true,
         },
         answer_integer_min: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            defautValue: 0
+            allowNull: true
         },
         answer_decimal: {
             type: DataTypes.DECIMAL(19, 4),
-            allowNull: false,
+            allowNull: true,
             defaultValue: 0.00
         },
         answer_text: {
