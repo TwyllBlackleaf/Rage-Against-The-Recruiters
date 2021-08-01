@@ -67,9 +67,9 @@ router.get('/', async (req, res) => {
     // res.render('talent-user', { opportunities });
 });
 
-router.post('/submit/:id', (req, res) => {
+router.post('/:id', (req, res) => {
     res.locals.username = req.session.username;
-    User.create({
+    JobDetails.create({
         // job_detailsid_pk: req.body.job_detailsid_pk,
         recruiterid_fk: req.body.recruiterid_fk,
         job_questionsid_fk: req.body.job_questionsid_fk,
@@ -95,7 +95,7 @@ router.post('/submit/:id', (req, res) => {
         // spouse_life_insurance_avail: req.body.spouse_life_insurance_avail,
         // add_benefits_employer_percentage: req.body.add_benefits_employer_percentage,
     })
-        .then(dbUserData => res.json(dbUserData))
+        .then(dbJobDetailsData => res.json(dbJobDetailsData))
         .catch(err => {
             console.log(err);
             res.status(400).json(err);
@@ -116,7 +116,7 @@ router.post('/submit/:id', (req, res) => {
 });
 
 // update surveyAnswers
-router.put('/submit/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     // update Answer data
     surveyAnswers.update(
         {
