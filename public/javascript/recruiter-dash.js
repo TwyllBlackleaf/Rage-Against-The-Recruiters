@@ -1,8 +1,8 @@
 const statusContainer = document.querySelector('#opportunity-status');
-const recruiterName = localStorage.getItem('user.username');
+const recruiterName = JSON.parse(localStorage.getItem('user')).username;
+const recruiterId = JSON.parse(localStorage.getItem('user')).id;
 
 document.querySelector('#recruiter-name').textContent = recruiterName;
-console.log(recruiterName);
 
 function clearStatus() {
     statusContainer.innerHTML = '';
@@ -11,7 +11,7 @@ function clearStatus() {
 function renderOpportunity(event) {
     clearStatus();
 
-    fetch('/api/opportunity', {
+    fetch('/api/opportunity/', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -21,11 +21,13 @@ function renderOpportunity(event) {
             statusContainer.innerHTML = '';
 
             data.opportunities.forEach(job => {
-                const jobLi = `${job.job_title} at ${job.company}`;
-                const statusLiEl = document.createElement('li');
-
-                statusContainer.appendChild(statusLiEl);
-                statusLiEl.innerHTML = jobLi;
+                if (job.recruiterid_fk === recruiterId) {
+                    const jobLi = `${job.job_title} at ${job.company}`;
+                    const statusLiEl = document.createElement('li');
+    
+                    statusContainer.appendChild(statusLiEl);
+                    statusLiEl.innerHTML = jobLi;
+                }
             });
 
         })
