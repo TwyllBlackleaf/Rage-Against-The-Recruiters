@@ -9,6 +9,8 @@ function clearCategory() {
     document.querySelector("#category-7").hidden = true;
 }
 
+
+
 // function checkDealbreaker(questionId) {
 //     fetch("/api/opportunity", {
 //         method: "GET",
@@ -173,17 +175,23 @@ function renderCategories(event) {
 }
 
 
-// async function fillOutAnswers(event) {
-//     event.preventDefault();
+function fillAnswers(ul) {
+    var oppId;
+    fetch(`/api/opportunity/${oppId}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
 
-//     data = await fetch("", {
+    ul.forEach(question => {
 
-//     });
-// }
-
-async function submitAnswer(event) {
-    event.preventDefault();
+    })
 }
+
+// async function submitAnswer(event) {
+//     event.preventDefault();
+// }
 
 
 document.querySelector("#dealbreaker-button").addEventListener("click", renderDealbreakers);
