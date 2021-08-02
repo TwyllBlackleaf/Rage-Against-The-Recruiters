@@ -49,18 +49,89 @@ const surveyAnswersData = [
         questionsid_fk: 6,
         job_detailsid_fk: 1, 
         userid_fk: 3,
-        answer: 'True',
+        answer: 'False',
+        answer_score: 6.00
+      },
+      {
+        //Job Questions 1
+        questionsid_fk: 7,
+        job_detailsid_fk: 1,
+        userid_fk: 3,
+        answer: 'False',
+        answer_score: 3.75
+      },
+      {
+        //Job Questions 1
+        questionsid_fk: 8,
+        job_detailsid_fk: 1,
+        userid_fk: 3,
+        answer: 'False',
+        answer_score: 2.75
+      },
+      {
+        //Job Questions 1
+        questionsid_fk: 9,
+        job_detailsid_fk: 1,
+        userid_fk: 3,
+        answer: '9',
+        answer_score: 10
+      },
+      {
+        //Job Questions 1
+        questionsid_fk: 10,
+        job_detailsid_fk: 1,
+        userid_fk: 3,
+        answer: '4',
         answer_score: 10.00
+      },
+      {
+        //Job Questions 1
+        questionsid_fk: 11,
+        job_detailsid_fk: 1,
+        userid_fk: 3,
+        answer: '6',
+        answer_score: 10.00
+      },
+      {
+        //Job Questions 1
+        questionsid_fk: 12,
+        job_detailsid_fk: 1,
+        userid_fk: 3,
+        answer: 'True',
+        answer_score: 7.50
+      },
+      {
+        //Job Questions 1
+        questionsid_fk: 14,
+        job_detailsid_fk: 1,
+        userid_fk: 3,
+        answer: 'False',
+        answer_score: 3.75
+      },
+      {
+        //Job Questions 1
+        questionsid_fk: 15,
+        job_detailsid_fk: 1,
+        userid_fk: 3,
+        answer: '10',
+        answer_score: 10.00
+      },
+      {
+        //Job Questions 1
+        questionsid_fk: 16,
+        job_detailsid_fk: 1,
+        userid_fk: 3,
+        answer: 'True',
+        answer_score: 3.75
+      },
+      {
+        //Job Questions 1
+        questionsid_fk: 16,
+        job_detailsid_fk: 1,
+        userid_fk: 3,
+        answer: 'False',
+        answer_score: 7.5
       }
-    //   {
-    //     //Job Questions 1
-    //     questionsid_fk: 
-    //     job_detailsid_fk: 
-    //     userid_fk:
-    //     answer:
-    //     answer_score:
-    //   },
- 
     
 ];
 

@@ -5,6 +5,7 @@ async function logout() {
     });
 
     if (response.ok) {
+        localStorage.clear();
       document.location.replace('/');
     } else {
       alert(response.statusText);
@@ -16,7 +17,7 @@ var logoutHandler = function(event) {
         logout();
     }
 }
-  
-document.querySelector('#logout-container')
-  .addEventListener('click', logoutHandler);
+
+// document.querySelector('#logout-container')
+//   .addEventListener('click', logoutHandler);
   
