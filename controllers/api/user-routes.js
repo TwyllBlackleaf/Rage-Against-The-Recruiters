@@ -27,13 +27,16 @@ router.post('/', (req, res) => {
           req.session.username = dbUserData.username;
           req.session.email = dbUserData.email;
           req.session.loggedIn = true;
+
+
     
-          // res.json(dbUserData);
+          res.json(dbUserData);
         });
         let user = {
           email: req.body.email,
           username: req.body.username,
-          password: dbUserData.password
+          password: dbUserData.password,
+          user_type: "Recruiter"
         }
         req.login(user, function(err) {
           if (err) {
