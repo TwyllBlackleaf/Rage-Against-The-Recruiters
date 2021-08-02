@@ -13,11 +13,12 @@ async function logout() {
   }
   
 var logoutHandler = function(event) {
-    if (event.target.matches("#logoutButton")) {
+    if (event.target.textContent === "Log Out") {
+        localStorage.clear();
         logout();
     }
 }
 
-// document.querySelector('#logout-container')
-//   .addEventListener('click', logoutHandler);
+ document.querySelector('#logout-signup-a')
+   .addEventListener('click', logoutHandler);
   
