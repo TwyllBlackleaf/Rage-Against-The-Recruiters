@@ -16,6 +16,10 @@ router.get('/submit', (req, res) => {
     res.sendFile(path.join(__dirname, "../public/HTML/submit.html"), { user: req.user });
 })
 
+router.get('/opportunity', (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/HTML/recruiterDashboard.html"), { user: req.user });
+})
+
 router.get('/', (req, res) => {
     res.locals.user = req.user;
     res.sendFile(path.join(__dirname, "../public/index.html"));
