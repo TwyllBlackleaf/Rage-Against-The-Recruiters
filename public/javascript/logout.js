@@ -16,7 +16,7 @@ var logoutHandler = function(event) {
         logout();
     }
 }
-  
+
 document.querySelector('#logout-container')
   .addEventListener('click', logoutHandler);
   
