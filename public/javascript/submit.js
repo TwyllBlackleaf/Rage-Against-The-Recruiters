@@ -148,7 +148,6 @@ function renderCategories(event) {
         catId = 7;
     } 
 
-
     fetch("/api/preferences", {
         method: "GET",
         headers: {
