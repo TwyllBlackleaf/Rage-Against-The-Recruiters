@@ -20,6 +20,13 @@ Saves **EVERYONE** time and effort. No more pointless cover letters, phone inter
 
 ## How it works:
 
+- Users are able to create an account with the profile as a recruiter or talent (job seekers).
+- Recruiters are able to add to their dashboard different job opportunities that are open by selecting the feature create job opportunities.
+- Recruiters then are to fill out a form filling out job details
+-The key job details are then saved into the database and used to connect with job seekers.
+- Talent is able to browse job details and opportunities the match their criteria. 
+
+
 ## Features:
 - User accounts with authentication
 - mobile responsive design using foundation

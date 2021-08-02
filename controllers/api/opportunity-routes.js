@@ -169,8 +169,8 @@ router.get('/', async (req, res) => {
 router.post('/:id', (req, res) => {
     JobDetails.create({
         // job_detailsid_pk: req.body.job_detailsid_pk,
-        recruiterid_fk: req.body.recruiterid_fk,
-        job_questionsid_fk: req.body.job_questionsid_fk,
+        recruiterid_fk: req.params.id,
+        // job_questionsid_fk: req.body.job_questionsid_fk,
         job_classification: req.body.job_classification,
         company: req.body.company,
         job_title: req.body.job_title,

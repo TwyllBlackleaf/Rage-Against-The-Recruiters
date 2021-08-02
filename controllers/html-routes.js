@@ -16,8 +16,12 @@ router.get('/submit', (req, res) => {
     res.sendFile(path.join(__dirname, "../public/HTML/submit.html"), { user: req.user });
 })
 
-router.get('/opportunity', (req, res) => {
+router.get('/recruiter_dash', (req, res) => {
     res.sendFile(path.join(__dirname, "../public/HTML/recruiterDashboard.html"), { user: req.user });
+})
+
+router.get('/create', (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/HTML/createOpportunities.html"), { user: req.user });
 })
 
 router.get('/', (req, res) => {
