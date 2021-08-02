@@ -6,7 +6,8 @@ const seedUsers = require('./05_Users');
 const seedUserInfo = require('./06_UserInfo');
 const seedJobDetails = require('./07_JobDetails');
 const seedSurveyAnswers = require('./08_SurveyAnswers');
-const seedJobQuestions = require('./09_JobQuestions');
+const seedScorecard = require('./09_Scorecard')
+const seedJobQuestions = require('./10_JobQuestions');
 
 
 
@@ -30,6 +31,8 @@ const seedAll = async () => {
   await seedJobDetails();
   console.log('--------------');
   await seedSurveyAnswers();
+  console.log('--------------');
+  await seedScorecard();
   console.log('--------------');
   await seedJobQuestions();
   console.log('--------------');

@@ -28,12 +28,13 @@ router.post('/', (req, res) => {
           req.session.email = dbUserData.email;
           req.session.loggedIn = true;
     
-          // res.json(dbUserData);
+          res.json(dbUserData);
         });
         let user = {
           email: req.body.email,
           username: req.body.username,
-          password: dbUserData.password
+          password: dbUserData.password,
+          user_type: "Recruiter"
         }
         req.login(user, function(err) {
           if (err) {
@@ -53,22 +54,21 @@ router.post('/login', passport.authenticate('local', {
   failureRedirect: '/login' 
 }),
 function(req, res) {
-  // res.json({ user: req.user })
-  res.redirect('/');
+  res.json({ user: req.user })
 });
 
 // logout
 router.post('/logout', (req, res) => {
   req.logout();
-  // if (req.session.loggedIn) {
-  //   req.session.destroy(() => {
-  //     res.status(204).end();
-  //   });
-  // }
-  // else {
-  //   res.status(404).end();
-  // }
-  res.redirect('/');
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
+  else {
+    res.status(404).end();
+  }
+  // res.redirect('/');
 });
 
 module.exports = router;

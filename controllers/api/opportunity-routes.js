@@ -167,7 +167,6 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/:id', (req, res) => {
-    //res.locals.username = req.session.username;
     JobDetails.create({
         // job_detailsid_pk: req.body.job_detailsid_pk,
         recruiterid_fk: req.body.recruiterid_fk,
