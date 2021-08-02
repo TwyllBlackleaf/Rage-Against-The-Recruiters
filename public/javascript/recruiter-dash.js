@@ -1,4 +1,8 @@
-const statusContainer = document.querySelector('#opportunity-status')
+const statusContainer = document.querySelector('#opportunity-status');
+const recruiterName = localStorage.getItem('user.username');
+
+document.querySelector('#recruiter-name').textContent = recruiterName;
+console.log(recruiterName);
 
 function clearStatus() {
     statusContainer.innerHTML = '';
@@ -19,9 +23,9 @@ function renderOpportunity(event) {
             data.opportunities.forEach(job => {
                 const jobLi = `${job.job_title} at ${job.company}`;
                 const statusLiEl = document.createElement('li');
-                
-                statusContainer.appendChild(statusLiEl)
-                statusLiEl.innerHTML = jobLi
+
+                statusContainer.appendChild(statusLiEl);
+                statusLiEl.innerHTML = jobLi;
             });
 
         })
