@@ -27,8 +27,6 @@ router.post('/', (req, res) => {
           req.session.username = dbUserData.username;
           req.session.email = dbUserData.email;
           req.session.loggedIn = true;
-
-
     
           res.json(dbUserData);
         });
@@ -57,8 +55,6 @@ router.post('/login', passport.authenticate('local', {
 }),
 function(req, res) {
   res.json({ user: req.user })
-  // res.redirect('/');
-
 });
 
 // logout
