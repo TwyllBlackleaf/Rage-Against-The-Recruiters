@@ -1,4 +1,6 @@
 # Rage-Against-The-Recruiters
+**NOTE:** This app is no longer being actively maintained.
+
 Tech recruiters overwhelmingly send out “shotgun” blasts of job opportunities to developers without actually confirming that the developer is qualified or even wants the position. Instead of wasting everyone’s time with pointless interviews and shuffling paperwork back and forth only to determine that it was not a good fit…. Why not use a Pre-Screening tool for the developer?
 
 ## Benefits of this app:
